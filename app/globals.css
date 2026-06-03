@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --background: #EDF3FF;
+  --foreground: #171717;
+  --hifi-orange: #F57C00;
+  --hifi-blue: #0D2B6B;
+  --hifi-dark: #07193f;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-hifi-orange: var(--hifi-orange);
+  --color-hifi-blue: var(--hifi-blue);
+  --color-hifi-dark: var(--hifi-dark);
+  --font-sans: var(--font-outfit), var(--font-geist-sans), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Custom Angle clip for hero image container */
+.hero-angled-clip {
+  clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 768px) {
+  .hero-angled-clip {
+    clip-path: none;
+  }
+}
+
+/* Custom transition styles */
+.transition-all-300 {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Navigation hover animation - Background scale effect */
+.nav-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(245, 124, 0, 0.15);
+  opacity: 0;
+  border-radius: 8px;
+  transform: scale(0);
+  transition: all 0.4s;
+  z-index: -1;
+}
+
+.nav-link:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Accessibility support for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nav-link::before {
+    transition: opacity 0.2s ease !important;
+    transform: none !important;
+  }
+  .nav-link:hover::before {
+    transform: none !important;
+  }
+  
+  /* Service card CTA arrows - disable movement */
+  .group\/cta span svg {
+    transition: opacity 0.2s ease !important;
+    transform: none !important;
+  }
+  .group\/cta:hover span svg {
+    transform: none !important;
+  }
+}
