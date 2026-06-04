@@ -79,9 +79,9 @@ export default function Home() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                 className="font-display text-4xl sm:text-5xl md:text-[64px] font-bold text-white leading-[1.1] mb-6 tracking-tight"
               >
-                Accurate Data.<br />
-                Smarter Decisions.<br />
-                <span className="text-hifi-orange">Better Tomorrow.</span>
+                Accurate Data<br />
+                Smarter Decisions<br />
+                <span className="text-hifi-orange">Better Tomorrow</span>
               </motion.h1>
 
               {/* Subtitle */}
@@ -257,6 +257,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <WhyChooseUs />
 
         {/* SERVICES SECTION */}
         <section className="bg-slate-50/50 py-16 md:py-24 border-t border-b border-slate-100">
@@ -458,8 +460,6 @@ export default function Home() {
 
         {/* GLOBAL COVERAGE SECTION */}
         <GlobalCoverageSection />
-
-        <WhyChooseUs />
 
         {/* CLIENT LOGOS SECTION */}
         {/* <section className="bg-slate-50 py-16 border-t border-b border-slate-100 text-center">

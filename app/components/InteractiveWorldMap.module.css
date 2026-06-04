@@ -35,7 +35,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loaderTxt {
@@ -72,6 +74,7 @@
 }
 
 @media (max-width: 768px) {
+
   :global(.gcm-pin:hover .pin-group),
   :global(.gcm-pin.highlighted .pin-group) {
     transform: scale(1.25);

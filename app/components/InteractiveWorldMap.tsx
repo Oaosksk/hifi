@@ -4,50 +4,50 @@ import { useEffect, useState } from 'react';
 import styles from './InteractiveWorldMap.module.css';
 
 const W = 1000, H = 650;
-const NAVY  = '#0D2B6B';
+const NAVY = '#0D2B6B';
 const ORANGE = '#F57C00';
-const DOT   = '#A8BFF4';
-const LINE  = '#8BAEE8';
+const DOT = '#A8BFF4';
+const LINE = '#8BAEE8';
 const PULSE = '#4A7FE8';
 
 const LOCS = [
-  { id: 'Canada',      lon: -96, lat:  60, lx:  10, ly: -24, ta: 'start' },
-  { id: 'USA',         lon: -98, lat:  38, lx:  10, ly:  22, ta: 'start' },
-  { id: 'UK',          lon:  -3, lat:  54, lx:  10, ly: -24, ta: 'start' },
-  { id: 'Europe',      lon:  15, lat:  51, lx:  10, ly:  22, ta: 'start' },
-  { id: 'UAE',         lon:  55, lat:  25, lx:  10, ly:  22, ta: 'start' },
-  { id: 'India',       lon:  79, lat:  22, lx:  10, ly: -24, ta: 'start' },
-  { id: 'South Africa',lon:  26, lat: -29, lx:  10, ly:  22, ta: 'start' },
-  { id: 'Australia',   lon: 135, lat: -26, lx: -10, ly: -24, ta: 'end'   },
-  { id: 'New Zealand', lon: 174, lat: -41, lx:  10, ly:  22, ta: 'start' },
+  { id: 'Canada', lon: -96, lat: 60, lx: 10, ly: -24, ta: 'start' },
+  { id: 'USA', lon: -98, lat: 38, lx: 10, ly: 22, ta: 'start' },
+  { id: 'UK', lon: -3, lat: 54, lx: 10, ly: -24, ta: 'start' },
+  { id: 'Europe', lon: 15, lat: 51, lx: 10, ly: 22, ta: 'start' },
+  { id: 'UAE', lon: 55, lat: 25, lx: 10, ly: 22, ta: 'start' },
+  { id: 'India', lon: 79, lat: 22, lx: 10, ly: -24, ta: 'start' },
+  { id: 'South Africa', lon: 26, lat: -29, lx: 10, ly: 22, ta: 'start' },
+  { id: 'Australia', lon: 135, lat: -26, lx: -10, ly: -24, ta: 'end' },
+  { id: 'New Zealand', lon: 174, lat: -41, lx: 10, ly: 22, ta: 'start' },
 ];
 
 const CONNS = [
   ['India', 'UAE'],
   ['India', 'Australia'],
   ['India', 'South Africa'],
-  ['UAE',   'Europe'],
-  ['UAE',   'South Africa'],
+  ['UAE', 'Europe'],
+  ['UAE', 'South Africa'],
   ['Australia', 'New Zealand'],
   ['Europe', 'UK'],
   ['Europe', 'USA'],
-  ['UK',    'USA'],
-  ['UK',    'Canada'],
+  ['UK', 'USA'],
+  ['UK', 'Canada'],
 ];
 
 
 
 function pinPath(r: number, h: number) {
   const cy = -(h - r);
-  return `M0,0 C${-r*0.85},${cy+r*0.5} ${-r},${cy+r*0.05} ${-r},${cy} A${r},${r} 0 1,1 ${r},${cy} C${r},${cy+r*0.05} ${r*0.85},${cy+r*0.5} 0,0 Z`;
+  return `M0,0 C${-r * 0.85},${cy + r * 0.5} ${-r},${cy + r * 0.05} ${-r},${cy} A${r},${r} 0 1,1 ${r},${cy} C${r},${cy + r * 0.05} ${r * 0.85},${cy + r * 0.5} 0,0 Z`;
 }
 
 function arcCP(x1: number, y1: number, x2: number, y2: number) {
-  const mx = (x1+x2)/2, my = (y1+y2)/2;
-  const dx = x2-x1, dy = y2-y1, dist = Math.hypot(dx, dy);
-  let nx = -dy/dist, ny = dx/dist;
+  const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+  const dx = x2 - x1, dy = y2 - y1, dist = Math.hypot(dx, dy);
+  let nx = -dy / dist, ny = dx / dist;
   if (ny > 0) { nx = -nx; ny = -ny; }
-  return [mx + nx * Math.min(dist*0.22, 72), Math.max(18, my + ny * Math.min(dist*0.22, 72))];
+  return [mx + nx * Math.min(dist * 0.22, 72), Math.max(18, my + ny * Math.min(dist * 0.22, 72))];
 }
 
 
@@ -116,7 +116,7 @@ export default function InteractiveWorldMap({ hoveredCountry, onLocationHover }:
       d3.select('#gcm-pulses').selectAll('*').remove();
       d3.select('#gcm-pins').selectAll('*').remove();
 
-      const proj = d3.geoNaturalEarth1().scale(200).translate([W/2 - 50, H/2 + 80]);
+      const proj = d3.geoNaturalEarth1().scale(200).translate([W / 2 - 50, H / 2 + 80]);
 
       const world = await d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json') as any;
       if (cancelled) return;
@@ -133,7 +133,7 @@ export default function InteractiveWorldMap({ hoveredCountry, onLocationHover }:
       const dotsG = d3.select('#gcm-dots');
       for (let x = 0; x < W; x += 6) {
         for (let y = 0; y < H - 80; y += 6) {
-          if (px[(y*W + x)*4 + 3] > 0) {
+          if (px[(y * W + x) * 4 + 3] > 0) {
             dotsG.append('circle')
               .attr('cx', x).attr('cy', y).attr('r', 1.8)
               .attr('fill', 'none').attr('stroke', DOT).attr('stroke-width', 0.85);
@@ -151,7 +151,7 @@ export default function InteractiveWorldMap({ hoveredCountry, onLocationHover }:
         }
       }
 
-      const linesG  = d3.select('#gcm-lines');
+      const linesG = d3.select('#gcm-lines');
       const pulsesG = d3.select('#gcm-pulses');
 
       function animatePulsesOnPath(arcD: string, pathLen: number) {
@@ -202,17 +202,17 @@ export default function InteractiveWorldMap({ hoveredCountry, onLocationHover }:
           .attr('opacity', 0);
 
         const lineLen = (path.node() as SVGPathElement).getTotalLength();
-        const pulseDelay = 900 + i*160 + 700 + 200 + i*180;
+        const pulseDelay = 900 + i * 160 + 700 + 200 + i * 180;
 
         path
           .attr('stroke-dasharray', lineLen)
           .attr('stroke-dashoffset', lineLen)
           .transition()
-            .delay(900 + i * 160)
-            .duration(700)
-            .ease(d3.easeQuadInOut)
-            .attr('stroke-dashoffset', 0)
-            .attr('opacity', 0.5)
+          .delay(900 + i * 160)
+          .duration(700)
+          .ease(d3.easeQuadInOut)
+          .attr('stroke-dashoffset', 0)
+          .attr('opacity', 0.5)
           .on('end', function () {
             d3.select(this).attr('stroke-dasharray', '6,5').attr('stroke-dashoffset', 0);
           });

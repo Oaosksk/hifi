@@ -192,7 +192,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             
             {/* Left: Contact Info */}
-            <div className="lg:col-span-4 space-y-6">
+            <div className="lg:col-span-4 space-y-6 order-2 lg:order-1">
               
               {/* Contact Information Card */}
               <div className="bg-gradient-to-br from-[#0D2B6B] to-[#07193f] rounded-2xl p-8 text-white shadow-xl">
@@ -342,7 +342,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right: Contact Form */}
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-8 order-1 lg:order-2">
               <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8 sm:p-12">
                 
                 {formSubmitted ? (

@@ -60,15 +60,14 @@ export default function GlobalCoverageSection() {
                   key={i}
                   onMouseEnter={() => setHoveredCountry(c.name)}
                   onMouseLeave={() => setHoveredCountry(null)}
-                  className={`bg-white border rounded-lg px-4 py-3 flex items-center gap-3 shadow-sm transition-all duration-300 cursor-pointer ${
-                    hoveredCountry === c.name
+                  className={`bg-white border rounded-lg px-4 py-3 flex items-center gap-3 shadow-sm transition-all duration-300 cursor-pointer ${hoveredCountry === c.name
                       ? 'border-[#F57C00] shadow-md bg-orange-50/30 scale-[1.02]'
                       : 'border-slate-200/80 hover:shadow-md hover:border-slate-300'
-                  }`}
+                    }`}
                 >
                   <div className="w-7 h-7 rounded-sm overflow-hidden flex-shrink-0 shadow-sm border border-slate-200/50">
-                    <img 
-                      src={c.flag} 
+                    <img
+                      src={c.flag}
                       alt={`${c.name} flag`}
                       width="28"
                       height="28"
@@ -76,12 +75,11 @@ export default function GlobalCoverageSection() {
                       loading="lazy"
                     />
                   </div>
-                  <span className={`font-ui text-sm font-medium transition-colors ${
-                    hoveredCountry === c.name ? 'text-[#F57C00]' : 'text-gray-800'
-                  }`}>{c.name}</span>
+                  <span className={`font-ui text-sm font-medium transition-colors ${hoveredCountry === c.name ? 'text-[#F57C00]' : 'text-gray-800'
+                    }`}>{c.name}</span>
                 </div>
               ))}
-              
+
               {/* Other Global Locations Card with Premium Globe Icon */}
               <div className="bg-white border border-slate-200/80 rounded-lg px-4 py-3 flex items-center gap-3 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300">
                 <div className="w-7 h-7 rounded-sm flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200/60">
@@ -95,7 +93,7 @@ export default function GlobalCoverageSection() {
 
         {/* RIGHT COLUMN: Interactive World Map */}
         <div className="hidden sm:flex w-full lg:w-[68%] relative items-center">
-          <InteractiveWorldMap 
+          <InteractiveWorldMap
             hoveredCountry={hoveredCountry}
             onLocationHover={setHoveredCountry}
           />
