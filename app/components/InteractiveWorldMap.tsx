@@ -143,8 +143,12 @@ export default function InteractiveWorldMap({ hoveredCountry, onLocationHover }:
 
       const pos: Record<string, [number, number]> = {};
       for (const loc of LOCS) {
-        const [sx, sy] = proj([loc.lon, loc.lat]);
-        pos[loc.id] = [sx, sy];
+        const p = proj([loc.lon, loc.lat]);
+        if (p) {
+          pos[loc.id] = p;
+        } else {
+          pos[loc.id] = [0, 0];
+        }
       }
 
       const linesG  = d3.select('#gcm-lines');
