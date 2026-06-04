@@ -57,7 +57,7 @@ export default async function ServiceDetailPage({
 
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             {/* Breadcrumbs */}
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 mb-4">
+            <div className="flex items-center gap-1.5 text-xs font-ui font-bold text-slate-400 mb-4">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-3 h-3" />
               <Link href="/services" className="hover:text-white transition-colors">Services</Link>
@@ -65,10 +65,10 @@ export default async function ServiceDetailPage({
               <span className="text-[#F57C00]">{data.title}</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 text-white">
+            <h1 className="text-3xl sm:text-5xl font-display font-bold tracking-tight mb-4 text-white">
               {data.title}
             </h1>
-            <p className="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+            <p className="font-sans text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
               {data.subtitle}
             </p>
           </div>
@@ -81,12 +81,12 @@ export default async function ServiceDetailPage({
               <h2 className="text-[#0D2B6B] text-xs font-bold uppercase tracking-widest mb-3">
                 Service Overview
               </h2>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0D2B6B] tracking-tight leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#0D2B6B] tracking-tight leading-tight">
                 Understanding Traffic Volume & Patterns
               </h3>
             </div>
             <div className="lg:col-span-8">
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed">
                 {data.overview}
               </p>
             </div>
@@ -98,7 +98,7 @@ export default async function ServiceDetailPage({
           <span className="text-[#F57C00] font-bold text-xs uppercase tracking-widest block text-center mb-3">
             Execution Steps
           </span>
-          <h2 className="text-3xl font-extrabold text-[#0D2B6B] tracking-tight text-center mb-16">
+          <h2 className="text-3xl font-display font-bold text-[#0D2B6B] tracking-tight text-center mb-16">
             Methodology & Validation Loop
           </h2>
 
@@ -110,8 +110,8 @@ export default async function ServiceDetailPage({
                   <div className="absolute top-0 right-6 -translate-y-1/2 text-4xl font-extrabold text-[#F57C00]/15">
                     0{idx + 1}
                   </div>
-                  <h4 className="text-sm font-bold text-[#0D2B6B] mb-2 mt-2">{title}</h4>
-                  <p className="text-xs text-slate-500 leading-relaxed">{desc}</p>
+                  <h4 className="font-ui text-sm font-bold text-[#0D2B6B] mb-2 mt-2">{title}</h4>
+                  <p className="font-sans text-xs text-slate-500 leading-relaxed">{desc}</p>
                 </div>
               );
             })}
@@ -123,7 +123,7 @@ export default async function ServiceDetailPage({
           <span className="text-[#F57C00] font-bold text-xs uppercase tracking-widest block text-center mb-3">
             Field Instrumentation
           </span>
-          <h2 className="text-3xl font-extrabold text-[#0D2B6B] tracking-tight text-center mb-16">
+          <h2 className="text-3xl font-display font-bold text-[#0D2B6B] tracking-tight text-center mb-16">
             Equipment & Software Used
           </h2>
 
@@ -134,8 +134,8 @@ export default async function ServiceDetailPage({
                   <Settings className="w-4 h-4 text-[#0D2B6B]" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#0D2B6B] mb-1">Instrument 0{idx + 1}</h4>
-                  <p className="text-xs text-slate-500 leading-relaxed">{eq}</p>
+                  <h4 className="font-ui text-sm font-bold text-[#0D2B6B] mb-1">Instrument 0{idx + 1}</h4>
+                  <p className="font-sans text-xs text-slate-500 leading-relaxed">{eq}</p>
                 </div>
               </div>
             ))}
@@ -147,7 +147,7 @@ export default async function ServiceDetailPage({
           <span className="text-[#F57C00] font-bold text-xs uppercase tracking-widest block text-center mb-3">
             Operational Value
           </span>
-          <h2 className="text-3xl font-extrabold text-[#0D2B6B] tracking-tight text-center mb-16">
+          <h2 className="text-3xl font-display font-bold text-[#0D2B6B] tracking-tight text-center mb-16">
             Key Study Benefits
           </h2>
 
@@ -157,7 +157,7 @@ export default async function ServiceDetailPage({
                 <div className="w-10 h-10 bg-[#F57C00]/10 rounded-full flex items-center justify-center mb-6">
                   <Award className="w-4 h-4 text-[#F57C00]" />
                 </div>
-                <p className="text-slate-600 text-sm font-semibold leading-relaxed">
+                <p className="font-sans text-slate-600 text-sm leading-relaxed">
                   {benefit}
                 </p>
               </div>

@@ -128,24 +128,59 @@ export default function ContactPage() {
       <main className="flex-1 w-full bg-white pt-20">
         
         {/* Hero Banner */}
-        <section className="bg-white py-24 border-b border-slate-100">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-12 lg:gap-20">
+        <section className="bg-[#07193f] pt-32 pb-20 text-white relative overflow-hidden">
+          {/* Globe + Signal Waves SVG — Contact page */}
+          <div className="absolute inset-0 select-none pointer-events-none overflow-hidden">
+            <svg viewBox="0 0 900 300" fill="none" className="absolute inset-0 w-full h-full opacity-[0.07]" preserveAspectRatio="xMidYMid slice">
+              {/* Globe outline */}
+              <circle cx="720" cy="150" r="120" stroke="white" strokeWidth="6" fill="none" />
+              {/* Globe latitude lines */}
+              <ellipse cx="720" cy="150" rx="120" ry="40" stroke="white" strokeWidth="2" fill="none" opacity="0.5" />
+              <ellipse cx="720" cy="150" rx="120" ry="80" stroke="white" strokeWidth="1.5" fill="none" opacity="0.4" />
+              {/* Globe meridian lines */}
+              <line x1="720" y1="30" x2="720" y2="270" stroke="white" strokeWidth="2" opacity="0.5" />
+              <line x1="600" y1="30" x2="840" y2="270" stroke="white" strokeWidth="1.5" opacity="0.3" />
+              <line x1="840" y1="30" x2="600" y2="270" stroke="white" strokeWidth="1.5" opacity="0.3" />
+              {/* Signal / wifi arcs on the left */}
+              <path d="M80,150 Q80,100 130,100" stroke="white" strokeWidth="3" fill="none" opacity="0.3" />
+              <path d="M80,150 Q80,70 160,70" stroke="white" strokeWidth="3" fill="none" opacity="0.5" />
+              <path d="M80,150 Q80,40 190,40" stroke="white" strokeWidth="3" fill="none" opacity="0.7" />
+              <path d="M80,150 Q80,200 130,200" stroke="white" strokeWidth="3" fill="none" opacity="0.3" />
+              <path d="M80,150 Q80,230 160,230" stroke="white" strokeWidth="3" fill="none" opacity="0.5" />
+              <path d="M80,150 Q80,260 190,260" stroke="white" strokeWidth="3" fill="none" opacity="0.7" />
+              {/* Central dot (transmitter) */}
+              <circle cx="80" cy="150" r="10" fill="white" />
+              {/* Connecting lines from transmitter to globe */}
+              <line x1="90" y1="150" x2="600" y2="100" stroke="white" strokeWidth="1.5" opacity="0.3" strokeDasharray="8 6" />
+              <line x1="90" y1="150" x2="600" y2="200" stroke="white" strokeWidth="1.5" opacity="0.3" strokeDasharray="8 6" />
+              {/* Location pin on globe */}
+              <circle cx="730" cy="120" r="8" fill="white" />
+              <line x1="730" y1="128" x2="730" y2="145" stroke="white" strokeWidth="3" />
+              {/* Envelope icon left of globe */}
+              <rect x="320" y="110" width="80" height="55" rx="4" stroke="white" strokeWidth="4" fill="none" />
+              <polyline points="320,110 360,145 400,110" stroke="white" strokeWidth="3" fill="none" />
+            </svg>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+              {/* Left side */}
               <div className="max-w-2xl">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-[3px] bg-[#0D2B6B] rounded-full"></div>
-                  <span className="text-[#0D2B6B] font-bold text-xs tracking-widest uppercase">
-                    Get In Touch
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-[#F57C00] to-[#F57C00] rounded-full"></div>
+                  <span className="text-[#F57C00] font-ui font-bold text-sm tracking-wide">
+                    GET IN TOUCH
                   </span>
                 </div>
-                <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold text-[#0D2B6B] tracking-tight leading-[1.1]">
-                  Let's Work Together
+                <h1 className="text-3xl sm:text-[44px] font-display font-bold text-white tracking-tight leading-tight">
+                  Let&apos;s Work Together
                 </h1>
               </div>
 
-              <div className="lg:max-w-md lg:pt-12 flex-shrink-0">
-                <p className="text-slate-600 text-base leading-[1.8]">
-                  Need accurate traffic data for your next project? Let HIFI Traffic Data Tech support your traffic survey with professional analysis, fast turnaround, and reliable service.
+              {/* Right side */}
+              <div className="lg:max-w-md">
+                <p className="font-sans text-slate-300 text-sm sm:text-base leading-relaxed">
+                  Need accurate traffic data for your next project? Let HIFI Traffic Data Tech support your survey with professional analysis, fast turnaround, and reliable service.
                 </p>
               </div>
             </div>
@@ -165,7 +200,7 @@ export default function ContactPage() {
                   <div className="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center">
                     <Phone className="w-5 h-5 text-[#F57C00]" />
                   </div>
-                  <h2 className="text-xl font-extrabold">Get In Touch</h2>
+                  <h2 className="font-ui text-xl font-bold">Get In Touch</h2>
                 </div>
                 
                 <div className="space-y-5">
@@ -174,8 +209,8 @@ export default function ContactPage() {
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="text-xs text-white/60 font-semibold mb-1">Call Us</p>
-                      <a href="tel:+919042801480" className="text-sm font-bold hover:text-[#F57C00] transition-colors">
+                      <p className="text-xs text-white/60 font-ui font-bold mb-1">Call Us</p>
+                      <a href="tel:+919042801480" className="text-sm font-ui font-bold hover:text-[#F57C00] transition-colors">
                         +91 9042801480
                       </a>
                     </div>
@@ -186,8 +221,8 @@ export default function ContactPage() {
                       <Mail className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="text-xs text-white/60 font-semibold mb-1">Email Us</p>
-                      <a href="mailto:info@hifitrafficdatatech.com" className="text-sm font-bold hover:text-[#F57C00] transition-colors break-all">
+                      <p className="text-xs text-white/60 font-ui font-bold mb-1">Email Us</p>
+                      <a href="mailto:info@hifitrafficdatatech.com" className="text-sm font-ui font-bold hover:text-[#F57C00] transition-colors break-all">
                         info@hifitrafficdatatech.com
                       </a>
                     </div>
@@ -198,8 +233,8 @@ export default function ContactPage() {
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="text-xs text-white/60 font-semibold mb-1">Visit Us</p>
-                      <p className="text-sm font-bold leading-relaxed">
+                      <p className="text-xs text-white/60 font-ui font-bold mb-1">Visit Us</p>
+                      <p className="text-sm font-sans font-normal leading-relaxed">
                         Chennai, Tamil Nadu, India
                       </p>
                     </div>
@@ -207,7 +242,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-white/10">
-                  <p className="text-xs font-semibold text-white/60 mb-4">CONNECT WITH US</p>
+                  <p className="text-xs font-ui font-bold text-white/60 mb-4">CONNECT WITH US</p>
                   <div className="flex gap-2.5">
                     <a 
                       href="https://linkedin.com/in/hifi-traffic-data-tech-8b7335297" 
@@ -251,7 +286,7 @@ export default function ContactPage() {
                   <div className="w-10 h-10 rounded-lg bg-[#F57C00]/10 flex items-center justify-center">
                     <Award className="w-5 h-5 text-[#F57C00]" />
                   </div>
-                  <h3 className="text-lg font-extrabold text-[#0D2B6B]">Why Choose Us</h3>
+                  <h3 className="font-ui text-lg font-bold text-[#0D2B6B]">Why Choose Us</h3>
                 </div>
                 
                 <div className="space-y-5">
@@ -282,8 +317,8 @@ export default function ContactPage() {
                         <item.icon className="w-5 h-5 text-[#F57C00] group-hover:text-white transition-colors" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-[#0D2B6B] mb-1">{item.title}</h4>
-                        <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
+                        <h4 className="font-ui text-sm font-bold text-[#0D2B6B] mb-1">{item.title}</h4>
+                        <p className="font-sans text-xs text-slate-600 leading-relaxed">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -296,10 +331,10 @@ export default function ContactPage() {
                   <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-white shadow-md flex items-center justify-center">
                     <CheckCircle2 className="w-8 h-8 text-[#F57C00]" />
                   </div>
-                  <h4 className="text-base font-extrabold text-[#0D2B6B] mb-2">
+                  <h4 className="font-ui text-base font-bold text-[#0D2B6B] mb-2">
                     Trusted by Leading Firms
                   </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="font-sans text-xs text-slate-600 leading-relaxed">
                     Join hundreds of satisfied clients who rely on HIFI Traffic Data Tech for accurate, timely traffic analysis and reporting.
                   </p>
                 </div>
@@ -315,8 +350,8 @@ export default function ContactPage() {
                     <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
-                    <h3 className="text-3xl font-extrabold text-[#0D2B6B] mb-4">Message Sent Successfully!</h3>
-                    <p className="text-slate-500 text-base leading-relaxed mb-8 max-w-lg mx-auto">
+                    <h3 className="font-display text-3xl font-bold text-[#0D2B6B] mb-4">Message Sent Successfully!</h3>
+                    <p className="font-sans text-slate-500 text-base leading-relaxed mb-8 max-w-lg mx-auto">
                       Thank you for contacting HIFI Traffic Data Tech. Our team will review your requirements and get back to you shortly.
                     </p>
                     <button 
@@ -333,10 +368,10 @@ export default function ContactPage() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-8">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0D2B6B] mb-2">
+                      <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#0D2B6B] mb-2">
                         Let's Discuss Your Traffic Project
                       </h3>
-                      <p className="text-slate-500 text-sm">
+                      <p className="font-sans text-slate-500 text-sm">
                         Fill out the form below and we'll get back to you as soon as possible.
                       </p>
                     </div>
@@ -345,20 +380,20 @@ export default function ContactPage() {
                     <div className="space-y-6">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Full Name</label>
+                          <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Full Name</label>
                           <input 
                             type="text" 
                             required
-                            className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
+                            className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                             placeholder="Enter Your Name"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Company / Organization</label>
+                          <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Company / Organization</label>
                           <input 
                             type="text" 
                             required
-                            className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
+                            className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                             placeholder="Enter Company Name"
                           />
                         </div>
@@ -366,35 +401,35 @@ export default function ContactPage() {
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Business Email</label>
+                          <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Business Email</label>
                           <input 
                             type="email" 
                             required
-                            className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
+                            className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                             placeholder="Enter Your Email Address"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Contact Number</label>
+                          <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Contact Number</label>
                           <input 
                             type="tel" 
                             required
-                            className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
+                            className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                             placeholder="Enter Phone Number"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Country / Region</label>
+                        <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Country / Region</label>
                         <select 
                           required
                           defaultValue=""
-                          className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
+                          className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                         >
-                          <option value="" disabled>Select Your Country</option>
+                          <option value="" disabled className="font-sans">Select Your Country</option>
                           {COUNTRIES.map((c) => (
-                            <option key={c} value={c}>{c}</option>
+                            <option key={c} value={c} className="font-sans">{c}</option>
                           ))}
                         </select>
                       </div>
@@ -404,15 +439,15 @@ export default function ContactPage() {
 
                     {/* Services Selection */}
                     <div className="relative dropdown-container">
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Select Service</label>
+                      <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Select Service</label>
                       
                       {/* Dropdown Button */}
                       <button
                         type="button"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm text-left focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all flex items-center justify-between"
+                        className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans text-left focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all flex items-center justify-between"
                       >
-                        <span className="text-slate-500">Choose services</span>
+                        <span className="text-slate-500 font-sans">Choose services</span>
                         <svg className={`w-4 h-4 text-slate-400 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
@@ -441,7 +476,7 @@ export default function ContactPage() {
                                     onChange={() => handleServiceToggle(service)}
                                     className="w-4 h-4 rounded border-slate-300 text-[#F57C00] focus:ring-[#F57C00]"
                                   />
-                                  <span className="text-sm text-slate-700">{service}</span>
+                                  <span className="text-sm font-sans text-slate-700">{service}</span>
                                 </label>
                               );
                             })}
@@ -450,7 +485,7 @@ export default function ContactPage() {
                             <button
                               type="button"
                               onClick={handleAddServices}
-                              className="w-full px-4 py-2 bg-[#F57C00] text-white text-sm font-bold rounded-lg hover:bg-[#E65100] transition-colors"
+                              className="w-full px-4 py-2 bg-[#F57C00] text-white font-ui text-sm font-bold rounded-lg hover:bg-[#E65100] transition-colors"
                             >
                               Add Selected Services
                             </button>
@@ -464,7 +499,7 @@ export default function ContactPage() {
                           {selectedServices.map((service) => (
                             <div
                               key={service}
-                              className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFF8F2] border border-[#F57C00]/30 rounded-full text-sm font-semibold text-[#0D2B6B]"
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFF8F2] border border-[#F57C00]/30 rounded-full text-sm font-ui font-semibold text-[#0D2B6B]"
                             >
                               <span>{service}</span>
                               <button
@@ -487,21 +522,21 @@ export default function ContactPage() {
                     {/* Project Details */}
                     <div className="space-y-6">
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Survey Location Details</label>
+                        <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Survey Location Details</label>
                         <input 
                           type="text"
                           required
-                          className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
+                          className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                           placeholder="Enter Site Location / Junction Name"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Project Requirement</label>
+                        <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Project Requirement</label>
                         <textarea 
                           rows={4}
                           required
-                          className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
+                          className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                           placeholder="Write your project details, report format, and survey timing."
                         />
                       </div>
@@ -511,11 +546,11 @@ export default function ContactPage() {
 
                     {/* File Upload */}
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Upload Survey Files</label>
+                      <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Upload Survey Files</label>
                       <label className="flex flex-col items-center justify-center border-2 border-dashed border-slate-200 hover:border-[#F57C00]/40 rounded-xl p-8 cursor-pointer bg-white transition-colors group">
                         <UploadCloud className="w-10 h-10 text-slate-400 group-hover:text-[#F57C00] transition-colors mb-2" />
-                        <span className="text-sm font-semibold text-[#0D2B6B] mb-1">Click to upload files</span>
-                        <span className="text-xs text-slate-400">Upload Videos, Templates, Layouts, or Instructions</span>
+                        <span className="text-sm font-ui font-semibold text-[#0D2B6B] mb-1">Click to upload files</span>
+                        <span className="text-xs font-sans text-slate-400">Upload Videos, Templates, Layouts, or Instructions</span>
                         <input 
                           type="file" 
                           multiple 
@@ -526,14 +561,14 @@ export default function ContactPage() {
                       
                       {files.length > 0 && (
                         <div className="mt-4 p-4 bg-orange-50/50 border border-[#F57C00]/10 rounded-xl">
-                          <p className="text-xs font-bold text-[#0D2B6B] mb-2">
+                          <p className="text-xs font-ui font-bold text-[#0D2B6B] mb-2">
                             Selected Files ({files.length}):
                           </p>
                           <ul className="text-xs text-slate-500 space-y-1.5 max-h-32 overflow-y-auto">
                             {files.map((file, idx) => (
                               <li key={idx} className="flex justify-between items-center gap-4 bg-white px-3 py-1.5 rounded border border-slate-100">
-                                <span className="truncate font-semibold text-slate-600">{file.name}</span>
-                                <span className="text-[10px] bg-slate-100 text-slate-500 px-1.5 py-0.5 rounded">
+                                <span className="truncate font-sans font-semibold text-slate-600">{file.name}</span>
+                                <span className="text-[10px] font-sans bg-slate-100 text-slate-500 px-1.5 py-0.5 rounded">
                                   {(file.size / 1024 / 1024).toFixed(2)} MB
                                 </span>
                               </li>
@@ -547,20 +582,26 @@ export default function ContactPage() {
 
                     {/* Delivery Requirement */}
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Delivery Requirement</label>
+                      <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Delivery Requirement</label>
                       <input 
                         type="date"
                         required
-                        className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
+                        className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#F57C00] text-white text-sm font-bold rounded-lg hover:bg-[#E65100] transition-all shadow-md group"
+                      className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#F57C00] text-white font-ui text-sm font-bold rounded-lg hover:bg-[#E65100] transition-all shadow-md group overflow-hidden relative h-14"
                     >
-                      Request Traffic Data Support
-                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <span className="flex items-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-14">
+                        Request Traffic Data Support
+                        <ArrowUpRight className="w-4 h-4" />
+                      </span>
+                      <span className="absolute flex items-center gap-2 translate-y-14 transition-transform duration-300 ease-out group-hover:translate-y-0">
+                        Request Traffic Data Support
+                        <ArrowUpRight className="w-4 h-4" />
+                      </span>
                     </button>
                   </form>
                 )}
@@ -575,10 +616,10 @@ export default function ContactPage() {
         <section className="py-20 bg-slate-50">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-              <span className="text-[#F57C00] font-bold text-xs uppercase tracking-widest">
+              <span className="text-[#F57C00] font-ui font-bold text-xs uppercase tracking-widest">
                 Find Us
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0D2B6B] tracking-tight mt-3">
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#0D2B6B] tracking-tight mt-3">
                 Our Location
               </h2>
             </div>

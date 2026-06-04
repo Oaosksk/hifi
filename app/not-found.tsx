@@ -16,7 +16,7 @@ export default function NotFound() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="px-3 py-1 bg-hifi-orange/10 text-hifi-orange text-xs font-bold uppercase tracking-widest rounded-full">
+          <span className="px-3 py-1 bg-hifi-orange/10 text-hifi-orange font-ui text-xs font-bold uppercase tracking-widest rounded-full">
             Error 404
           </span>
         </motion.div>
@@ -25,7 +25,7 @@ export default function NotFound() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-8xl font-black text-hifi-blue mt-6 mb-2 tracking-tighter"
+          className="text-8xl font-ui font-black text-hifi-blue mt-6 mb-2 tracking-tighter"
         >
           404
         </motion.h1>
@@ -34,7 +34,7 @@ export default function NotFound() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-2xl font-extrabold text-slate-800 mb-4"
+          className="font-display text-2xl font-bold text-slate-800 mb-4"
         >
           Page Not Found
         </motion.h2>
@@ -43,7 +43,7 @@ export default function NotFound() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-slate-500 text-sm leading-relaxed mb-8 max-w-sm mx-auto"
+          className="font-sans text-slate-500 text-sm leading-relaxed mb-8 max-w-sm mx-auto"
         >
           The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
         </motion.p>
@@ -56,14 +56,14 @@ export default function NotFound() {
         >
           <Link
             href="/"
-            className="flex items-center justify-center gap-2 px-6 py-3 bg-hifi-blue text-white text-sm font-bold rounded-lg hover:bg-hifi-dark transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 duration-200"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-hifi-blue text-white font-ui text-sm font-bold rounded-lg hover:bg-hifi-dark transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 duration-200"
           >
             <Home className="w-4 h-4" />
             Back to Home
           </Link>
           <button
             onClick={() => window.history.back()}
-            className="flex items-center justify-center gap-2 px-6 py-3 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg hover:bg-slate-50 transition-all shadow-sm hover:shadow hover:-translate-y-0.5 duration-200"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-white border border-slate-200 text-slate-700 font-ui text-sm font-bold rounded-lg hover:bg-slate-50 transition-all shadow-sm hover:shadow hover:-translate-y-0.5 duration-200"
           >
             <ArrowLeft className="w-4 h-4" />
             Go Back

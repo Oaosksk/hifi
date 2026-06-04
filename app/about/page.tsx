@@ -16,25 +16,60 @@ export default function AboutPage() {
       
       <main className="flex-1 w-full bg-white pt-20">
         {/* Banner Hero */}
-        <section className="bg-white py-24 border-b border-slate-100">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="bg-[#07193f] pt-32 pb-20 text-white relative overflow-hidden">
+          {/* Connected Nodes / Team Network SVG — About page */}
+          <div className="absolute inset-0 select-none pointer-events-none overflow-hidden">
+            <svg viewBox="0 0 900 300" fill="none" className="absolute inset-0 w-full h-full opacity-[0.08]" preserveAspectRatio="xMidYMid slice">
+              {/* Node connections lines */}
+              <line x1="150" y1="80" x2="350" y2="150" stroke="white" strokeWidth="2" />
+              <line x1="350" y1="150" x2="550" y2="80" stroke="white" strokeWidth="2" />
+              <line x1="550" y1="80" x2="750" y2="150" stroke="white" strokeWidth="2" />
+              <line x1="150" y1="80" x2="350" y2="220" stroke="white" strokeWidth="1.5" opacity="0.5" />
+              <line x1="350" y1="150" x2="550" y2="220" stroke="white" strokeWidth="1.5" opacity="0.5" />
+              <line x1="550" y1="80" x2="350" y2="220" stroke="white" strokeWidth="1.5" opacity="0.4" />
+              <line x1="750" y1="150" x2="550" y2="220" stroke="white" strokeWidth="1.5" opacity="0.5" />
+              <line x1="50" y1="200" x2="150" y2="80" stroke="white" strokeWidth="1.5" opacity="0.4" />
+              <line x1="750" y1="150" x2="850" y2="80" stroke="white" strokeWidth="1.5" opacity="0.4" />
+              {/* Person circles — large nodes */}
+              <circle cx="150" cy="80" r="22" fill="white" />
+              <circle cx="350" cy="150" r="28" fill="white" />
+              <circle cx="550" cy="80" r="22" fill="white" />
+              <circle cx="750" cy="150" r="22" fill="white" />
+              {/* Person heads on large nodes */}
+              <circle cx="150" cy="70" r="10" fill="#07193f" />
+              <path d="M130 94 Q150 86 170 94" stroke="#07193f" strokeWidth="3" fill="none" />
+              <circle cx="350" cy="137" r="13" fill="#07193f" />
+              <path d="M325 163 Q350 153 375 163" stroke="#07193f" strokeWidth="3" fill="none" />
+              <circle cx="550" cy="70" r="10" fill="#07193f" />
+              <path d="M530 94 Q550 86 570 94" stroke="#07193f" strokeWidth="3" fill="none" />
+              <circle cx="750" cy="140" r="10" fill="#07193f" />
+              <path d="M730 164 Q750 156 770 164" stroke="#07193f" strokeWidth="3" fill="none" />
+              {/* Secondary small nodes */}
+              <circle cx="350" cy="220" r="12" fill="white" opacity="0.6" />
+              <circle cx="550" cy="220" r="12" fill="white" opacity="0.6" />
+              <circle cx="50" cy="200" r="10" fill="white" opacity="0.4" />
+              <circle cx="850" cy="80" r="10" fill="white" opacity="0.4" />
+            </svg>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-              {/* Left side */}
               <div className="max-w-2xl">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-[#0D2B6B] to-[#0D2B6B] rounded-full"></div>
-                  <span className="text-[#0D2B6B] font-semibold text-sm tracking-wide">
+                  <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-[#F57C00] to-[#F57C00] rounded-full"></div>
+                  <span className="text-[#F57C00] font-ui text-xs sm:text-sm font-bold uppercase tracking-wider">
                     WHO WE ARE
                   </span>
                 </div>
-                <h1 className="text-3xl sm:text-[44px] font-extrabold text-[#0D2B6B] tracking-tight leading-tight">
+                <h1 className="text-3xl sm:text-[44px] font-display font-bold text-white tracking-tight leading-tight">
                   About HIFI Traffic Data Tech
                 </h1>
+                
               </div>
-
+ 
               {/* Right side */}
               <div className="lg:max-w-md">
-                <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
+                <p className="font-sans font-normal text-slate-300 text-sm sm:text-base leading-relaxed">
                   Your count, connected to solutions. We deliver top-tier traffic engineering and intelligence data for urban and regional development.
                 </p>
               </div>
@@ -52,6 +87,7 @@ export default function AboutPage() {
                 src="/about_us_traffic.png"
                 alt="HIFI Traffic Data Tech professional team"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
@@ -60,20 +96,20 @@ export default function AboutPage() {
             <div>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-[#0D2B6B] to-[#0D2B6B] rounded-full"></div>
-                <span className="text-[#0D2B6B] font-semibold text-sm tracking-wide">
+                <span className="text-[#0D2B6B] font-ui text-xs sm:text-sm font-bold uppercase tracking-wider">
                   About Us
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#0D2B6B] tracking-tight leading-tight mb-6">
+              <h2 className="text-3xl sm:text-[40px] font-display font-bold text-[#0D2B6B] tracking-tight leading-tight mb-6">
                 Precise Traffic Data Grounded In Clarity & Trust
               </h2>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+              <p className="font-sans font-normal text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
                 HIFI TRAFFIC DATA TECH is a dedicated traffic data processing company from India, supporting clients across the USA, UK, Australia, South Africa, UAE, Canada, and other countries.
               </p>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+              <p className="font-sans font-normal text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
                 We understand that every traffic project needs accuracy, clarity, and on-time delivery. That is why every project is handled carefully by trained analysts and checked before submission.
               </p>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              <p className="font-sans font-normal text-slate-600 text-sm sm:text-base leading-relaxed">
                 From simple traffic volume counts to complex turning movement counts, pedestrian studies, cyclist counts, vehicle classification, queue analysis, and parking surveys, we provide reliable data that helps clients make confident engineering decisions.
               </p>
             </div>
@@ -84,10 +120,10 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {/* Stat 1 */}
               <div className="text-center relative">
-                <div className="text-5xl sm:text-6xl font-black text-[#0D2B6B] mb-3 tracking-tight">
+                <div className="text-5xl sm:text-6xl font-ui font-black text-[#0D2B6B] mb-3 tracking-tight">
                   <Counter end={10} suffix="+" />
                 </div>
-                <div className="text-sm text-slate-600 font-medium">
+                <div className="text-sm font-ui text-slate-600 font-medium">
                   Years of Experience
                 </div>
                 {/* Vertical Divider */}
@@ -96,10 +132,10 @@ export default function AboutPage() {
 
               {/* Stat 2 */}
               <div className="text-center relative">
-                <div className="text-5xl sm:text-6xl font-black text-[#0D2B6B] mb-3 tracking-tight">
+                <div className="text-5xl sm:text-6xl font-ui font-black text-[#0D2B6B] mb-3 tracking-tight">
                   <Counter end={500} suffix="+" />
                 </div>
-                <div className="text-sm text-slate-600 font-medium">
+                <div className="text-sm font-ui text-slate-600 font-medium">
                   Projects Completed
                 </div>
                 {/* Vertical Divider */}
@@ -108,11 +144,11 @@ export default function AboutPage() {
 
               {/* Stat 3 */}
               <div className="text-center relative">
-                <div className="text-5xl sm:text-6xl font-black text-[#0D2B6B] mb-3 tracking-tight">
+                <div className="text-5xl sm:text-6xl font-ui font-black text-[#0D2B6B] mb-3 tracking-tight">
                   <Counter end={250} suffix="+" />
                 </div>
-                <div className="text-sm text-slate-600 font-medium">
-                  Clients Worldwide
+                <div className="text-sm font-ui text-slate-600 font-medium">
+                  Happy Clients
                 </div>
                 {/* Vertical Divider */}
                 <div className="hidden md:block absolute top-0 bottom-0 -right-4 w-[1px] bg-slate-200"></div>
@@ -120,18 +156,16 @@ export default function AboutPage() {
 
               {/* Stat 4 */}
               <div className="text-center">
-                <div className="text-5xl sm:text-6xl font-black text-[#0D2B6B] mb-3 tracking-tight">
+                <div className="text-5xl sm:text-6xl font-ui font-black text-[#0D2B6B] mb-3 tracking-tight">
                   <Counter end={15} suffix="+" />
                 </div>
-                <div className="text-sm text-slate-600 font-medium">
+                <div className="text-sm font-ui text-slate-600 font-medium">
                   Countries Served
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-     
 
         {/* Core Values - Redesigned with Professional Animation */}
         <section className="bg-gradient-to-b from-white to-slate-50 py-24 border-t border-slate-100">
@@ -142,17 +176,17 @@ export default function AboutPage() {
               <div className="max-w-2xl">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-[#0D2B6B] to-[#0D2B6B] rounded-full"></div>
-                  <span className="text-[#0D2B6B] font-semibold text-sm tracking-wide">
+                  <span className="text-[#0D2B6B] font-ui text-xs sm:text-sm font-bold uppercase tracking-wider">
                     Our Core Principles
                   </span>
                 </div>
-                <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#0D2B6B] tracking-tight leading-tight">
+                <h2 className="text-3xl sm:text-[40px] font-display font-bold text-[#0D2B6B] tracking-tight leading-tight">
                   Values That Drive Us Forward
                 </h2>
               </div>
               
               <div className="lg:max-w-md">
-                <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
+                <p className="font-sans font-normal text-slate-500 text-sm sm:text-base leading-relaxed">
                   Our commitment to excellence is built on four foundational principles that guide every project we undertake.
                 </p>
               </div>
@@ -231,7 +265,7 @@ export default function AboutPage() {
 
                     {/* Content */}
                     <div className="relative z-10">
-                      <h3 className="text-xl font-black text-[#0D2B6B] mb-3 group-hover:text-[#F57C00] transition-colors duration-300">
+                      <h3 className="text-xl font-ui font-bold text-[#0D2B6B] mb-3 group-hover:text-[#F57C00] transition-colors duration-300">
                         {val.title}
                       </h3>
                       
@@ -244,7 +278,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.8, delay: val.delay + 0.2 }}
                       />
                       
-                      <p className="text-slate-600 text-sm leading-relaxed">
+                      <p className="font-sans font-normal text-slate-600 text-sm leading-relaxed">
                         {val.desc}
                       </p>
                     </div>
@@ -276,18 +310,18 @@ export default function AboutPage() {
               <div className="max-w-2xl">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-[#0D2B6B] to-[#0D2B6B] rounded-full"></div>
-                  <span className="text-[#0D2B6B] font-semibold text-sm tracking-wide">
+                  <span className="text-[#0D2B6B] font-ui text-xs sm:text-sm font-bold uppercase tracking-wider">
                     Our Team
                   </span>
                 </div>
-                <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#0D2B6B] tracking-tight leading-tight">
+                <h2 className="text-3xl sm:text-[40px] font-display font-bold text-[#0D2B6B] tracking-tight leading-tight">
                   Expert Traffic Analysts. Strategic Solutions.
                 </h2>
               </div>
 
               {/* Right Header */}
               <div className="lg:max-w-md flex flex-col items-start gap-6">
-                <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
+                <p className="font-sans font-normal text-slate-500 text-sm sm:text-base leading-relaxed">
                   A collaborative team committed to precise traffic analysis, data accuracy, and dependable engineering support.
                 </p>
               </div>
@@ -321,6 +355,7 @@ export default function AboutPage() {
                     src={member.img}
                     alt={member.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
 
@@ -334,10 +369,10 @@ export default function AboutPage() {
 
                   {/* Card Content absolute container */}
                   <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col items-start justify-end h-full z-10">
-                    <h3 className="text-xl sm:text-2xl font-black text-white mb-1 group-hover:text-hifi-orange transition-colors duration-300">
+                    <h3 className="text-xl sm:text-2xl font-ui font-bold text-white mb-1 group-hover:text-hifi-orange transition-colors duration-300">
                       {member.name}
                     </h3>
-                    <p className="text-white/70 text-xs sm:text-sm font-semibold uppercase tracking-wider">
+                    <p className="text-white/70 text-xs sm:text-sm font-ui font-bold uppercase tracking-wider">
                       {member.role}
                     </p>
                   </div>
@@ -362,20 +397,20 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-     <div className="flex items-center justify-center gap-4">
-  <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-[#0D2B6B] to-[#0D2B6B]" />
+                <div className="flex items-center justify-center gap-4">
+                  <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-[#0D2B6B] to-[#0D2B6B]" />
 
-  <span className="text-[#0D2B6B] font-medium text-sm tracking-wide">
-    Client Perspectives
-  </span>
+                  <span className="text-[#0D2B6B] font-ui text-xs sm:text-sm font-bold uppercase tracking-wider">
+                    Client Perspectives
+                  </span>
 
-  <div className="w-24 h-[2px] bg-gradient-to-l from-transparent via-[#0D2B6B] to-[#0D2B6B]" />
-</div>
+                  <div className="w-24 h-[2px] bg-gradient-to-l from-transparent via-[#0D2B6B] to-[#0D2B6B]" />
+                </div>
               </motion.div>
               
               {/* Main Heading */}
               <motion.h2 
-                className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#0D2B6B] tracking-tight leading-tight"
+                className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-[#0D2B6B] tracking-tight leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

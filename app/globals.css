@@ -14,7 +14,9 @@
   --color-hifi-orange: var(--hifi-orange);
   --color-hifi-blue: var(--hifi-blue);
   --color-hifi-dark: var(--hifi-dark);
-  --font-sans: var(--font-outfit), var(--font-geist-sans), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-ui: var(--font-dm-sans), sans-serif;
+  --font-display: var(--font-dm-serif), serif;
 }
 
 html {
@@ -59,7 +61,8 @@ body {
   z-index: -1;
 }
 
-.nav-link:hover::before {
+.nav-link:hover::before,
+.nav-link.active::before {
   opacity: 1;
   transform: scale(1);
 }

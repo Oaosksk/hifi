@@ -66,7 +66,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
-                className="inline-flex items-center gap-2 mb-7 px-4 py-1.5 rounded-full border border-hifi-orange/40 bg-hifi-orange/10 text-hifi-orange font-bold text-xs uppercase tracking-widest"
+                className="inline-flex items-center gap-2 mb-7 px-4 py-1.5 rounded-full border border-hifi-orange/40 bg-hifi-orange/10 text-hifi-orange font-ui font-bold text-xs uppercase tracking-widest"
               >
                 {/* <span className="w-1.5 h-1.5 rounded-full bg-hifi-orange animate-pulse"></span> */}
                 Trusted Traffic Data Solutions
@@ -77,7 +77,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-[64px] font-black text-white leading-[1.1] mb-6 tracking-tight"
+                className="font-display text-4xl sm:text-5xl md:text-[64px] font-bold text-white leading-[1.1] mb-6 tracking-tight"
               >
                 Accurate Data.<br />
                 Smarter Decisions.<br />
@@ -89,7 +89,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                className="text-white/75 text-base sm:text-lg leading-relaxed mb-10 max-w-xl"
+                className="font-sans font-normal text-white/75 text-base sm:text-lg leading-relaxed mb-10 max-w-xl"
               >
                 High-quality traffic data collection and analysis to support better planning, design and operational decisions.
               </motion.p>
@@ -103,17 +103,29 @@ export default function Home() {
               >
                 <Link
                   href="/services"
-                  className="group flex items-center justify-center gap-2 px-8 py-4 bg-hifi-orange text-white text-sm font-bold rounded-lg hover:bg-orange-600 hover:scale-[1.03] active:scale-[0.98] transition-all shadow-lg shadow-hifi-orange/20 w-full sm:w-auto"
+                  className="group flex items-center justify-center gap-2 px-8 py-4 bg-hifi-orange text-white font-ui text-sm font-bold rounded-lg hover:bg-orange-600 transition-all shadow-lg shadow-hifi-orange/20 w-full sm:w-auto overflow-hidden relative h-14"
                 >
-                  Our Services
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <span className="flex items-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-14">
+                    Our Services
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
+                  <span className="absolute flex items-center gap-2 translate-y-14 transition-transform duration-300 ease-out group-hover:translate-y-0">
+                    Our Services
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
                 </Link>
                 <Link
                   href="/get-quote"
-                  className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/25 text-white text-sm font-bold rounded-lg hover:bg-white/20 hover:scale-[1.03] active:scale-[0.98] transition-all w-full sm:w-auto"
+                  className="group flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/25 text-white font-ui text-sm font-bold rounded-lg hover:bg-white/20 transition-all w-full sm:w-auto overflow-hidden relative h-14"
                 >
-                Contact Us 
-                  <ArrowUpRight className="w-4 h-4" />
+                  <span className="flex items-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-14">
+                    Contact Us
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
+                  <span className="absolute flex items-center gap-2 translate-y-14 transition-transform duration-300 ease-out group-hover:translate-y-0">
+                    Contact Us
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
                 </Link>
               </motion.div>
 
@@ -145,26 +157,27 @@ export default function Home() {
         </section>
 
         {/* ABOUT US SECTION */}
-        <section className="bg-white py-24 border-b border-slate-100">
+        <section className="bg-white py-16 md:py-24 border-b border-slate-100">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-start">
 
               {/* Left Column: Line Tagline + Image */}
               <div className="lg:col-span-5 flex flex-col gap-8">
                 {/* About Us Tagline with line */}
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-[#0D2B6B] to-[#0D2B6B] rounded-full"></div>
-                  <span className="text-[#0D2B6B] font-semibold text-sm tracking-wide">
+                  <span className="text-[#0D2B6B] font-ui font-bold text-sm tracking-wide">
                     About Us
                   </span>
                 </div>
 
                 {/* Professional Team Image */}
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-100/50">
+                <div className="relative w-full aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-100/50">
                   <Image
                     src="/about_us_traffic.png"
                     alt="HIFI Traffic Data Tech team monitoring traffic systems"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 40vw"
                     className="object-cover"
                   />
                 </div>
@@ -173,10 +186,10 @@ export default function Home() {
               {/* Right Column: Content, Button, Metrics */}
               <div className="lg:col-span-7 flex flex-col gap-8">
                 <div>
-                  <h2 className="text-3xl sm:text-[42px] font-extrabold text-[#0D2B6B] tracking-tight leading-tight mb-6">
+                  <h2 className="text-3xl sm:text-[42px] font-display font-bold text-[#0D2B6B] tracking-tight leading-tight mb-6">
                     Precise Traffic Data Grounded In Clarity & Trust
                   </h2>
-                  <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
+                  <p className="font-sans font-normal text-slate-500 text-sm sm:text-base leading-relaxed">
                     At HIFI TRAFFIC DATA TECH, we provide high-fidelity traffic survey processing and engineering analysis grounded in absolute precision. Working closely with transportation planners, municipalities, and consulting firms, we deliver critical data insights that support smarter infrastructure and planning decisions. We take the time to validate every count, classify every vehicle, and offer reliable delivery timelines tailored to your project scopes.
                   </p>
                 </div>
@@ -184,50 +197,56 @@ export default function Home() {
                 <div>
                   <Link
                     href="/about"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#0D2B6B] text-white text-sm font-bold rounded-lg hover:bg-[#07193f] transition-colors group"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#0D2B6B] text-white font-ui text-sm font-bold rounded-lg hover:bg-[#07193f] transition-colors group overflow-hidden relative h-12"
                   >
-                    Learn More
-                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <span className="flex items-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-12">
+                      Learn More
+                      <ArrowUpRight className="w-4 h-4" />
+                    </span>
+                    <span className="absolute flex items-center gap-2 translate-y-12 transition-transform duration-300 ease-out group-hover:translate-y-0">
+                      Learn More
+                      <ArrowUpRight className="w-4 h-4" />
+                    </span>
                   </Link>
                 </div>
-
+ 
                 {/* Metrics Flex Row */}
                 <div className="flex flex-wrap items-center justify-between gap-8 pt-10 border-t border-slate-100 mt-4">
                   <div className="flex-1 min-w-[120px]">
-                    <div className="text-3xl font-black text-[#0D2B6B] mb-0.5">
+                    <div className="text-3xl font-ui font-black text-[#0D2B6B] mb-0.5">
                       <Counter end={10} suffix="+" />
                     </div>
-                    <div className="text-[10px] text-slate-500 font-bold tracking-wider uppercase">
+                    <div className="text-[10px] font-ui text-slate-500 font-bold tracking-wider uppercase">
                       Years of Experience
                     </div>
                   </div>
                   <div className="hidden md:block w-[1px] h-10 bg-slate-200"></div>
 
                   <div className="flex-1 min-w-[120px]">
-                    <div className="text-3xl font-black text-[#0D2B6B] mb-0.5">
+                    <div className="text-3xl font-ui font-black text-[#0D2B6B] mb-0.5">
                       <Counter end={500} suffix="+" />
                     </div>
-                    <div className="text-[10px] text-slate-500 font-bold tracking-wider uppercase">
+                    <div className="text-[10px] font-ui text-slate-500 font-bold tracking-wider uppercase">
                       Projects Completed
                     </div>
                   </div>
                   <div className="hidden md:block w-[1px] h-10 bg-slate-200"></div>
 
                   <div className="flex-1 min-w-[120px]">
-                    <div className="text-3xl font-black text-[#0D2B6B] mb-0.5">
+                    <div className="text-3xl font-ui font-black text-[#0D2B6B] mb-0.5">
                       <Counter end={250} suffix="+" />
                     </div>
-                    <div className="text-[10px] text-slate-500 font-bold tracking-wider uppercase">
+                    <div className="text-[10px] font-ui text-slate-500 font-bold tracking-wider uppercase">
                       Happy Clients
                     </div>
                   </div>
                   <div className="hidden md:block w-[1px] h-10 bg-slate-200"></div>
 
                   <div className="flex-1 min-w-[120px]">
-                    <div className="text-3xl font-black text-[#0D2B6B] mb-0.5">
+                    <div className="text-3xl font-ui font-black text-[#0D2B6B] mb-0.5">
                       <Counter end={15} suffix="+" />
                     </div>
-                    <div className="text-[10px] text-slate-500 font-bold tracking-wider uppercase">
+                    <div className="text-[10px] font-ui text-slate-500 font-bold tracking-wider uppercase">
                       Countries Served
                     </div>
                   </div>
@@ -240,7 +259,7 @@ export default function Home() {
         </section>
 
         {/* SERVICES SECTION */}
-        <section className="bg-slate-50/50 py-24 border-t border-b border-slate-100">
+        <section className="bg-slate-50/50 py-16 md:py-24 border-t border-b border-slate-100">
           <div className="max-w-7xl mx-auto px-6">
 
             {/* Redesigned Services Header */}
@@ -249,37 +268,43 @@ export default function Home() {
               <div className="max-w-2xl">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-[#0D2B6B] to-[#0D2B6B] rounded-full"></div>
-                  <span className="text-[#0D2B6B] font-semibold text-sm tracking-wide">
+                  <span className="text-[#0D2B6B] font-ui text-xs sm:text-sm font-bold uppercase tracking-wider">
                     Our Traffic Expertise
                   </span>
                 </div>
-                <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#0D2B6B] tracking-tight leading-tight">
+                <h2 className="text-3xl sm:text-[40px] font-display font-bold text-[#0D2B6B] tracking-tight leading-tight">
                   Traffic Support Across Key Survey Areas
                 </h2>
               </div>
-
+ 
               {/* Right Header */}
               <div className="lg:max-w-md flex flex-col items-start gap-6">
-                <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
+                <p className="font-sans font-normal text-slate-500 text-sm sm:text-base leading-relaxed">
                   We provide practical and accurate traffic data services tailored to traffic consultants, engineering firms, planning teams, and road safety professionals.
                 </p>
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#0D2B6B] text-white text-sm font-bold rounded-lg hover:bg-[#07193f] transition-all duration-300 group shadow-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#0D2B6B] text-white font-ui text-sm font-bold rounded-lg hover:bg-[#07193f] transition-all duration-300 group shadow-sm overflow-hidden relative h-12"
                 >
-                  View All Services
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                   <span className="flex items-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-12">
+                    View All Services
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
+                  <span className="absolute flex items-center gap-2 translate-y-12 transition-transform duration-300 ease-out group-hover:translate-y-0">
+                    View All Services
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
                 </Link>
               </div>
             </div>
-
+ 
             {/* Redesigned Services 3-Card Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
                   title: "Traffic Volume Count",
                   desc: "We provide accurate vehicle volume counts for roads, highways, site access points, and intersections. Data can be delivered by direction, time interval, lane, and vehicle type based on client requirements. This service helps clients understand traffic flow, peak-hour demand, road usage, and future planning needs.",
-                  img: "/Our Services/tv.png",
+                  img: "/Our Services/traffic-volume/traffic-volume.png",
                   slug: "traffic-volume-studies"
                 },
                 {
@@ -291,7 +316,7 @@ export default function Home() {
                 {
                   title: "Vehicle Classification Count",
                   desc: "We classify vehicles based on client-required categories such as car, motorcycle, bicycle, bus, light goods vehicle, heavy goods vehicle, truck, trailer, and other classes. We also support country-wise vehicle classification formats including USA, UK, Australia, South Africa, and other project-specific standards.",
-                  img: "/Our Services/1.Link Count Surveys/360_F_126616293_rpRrEdTPBT23B5aJIcmyIFpLBd7nzN0g.jpg",
+                  img: "/Our Services/Link Count Surveys/360_F_126616293_rpRrEdTPBT23B5aJIcmyIFpLBd7nzN0g.png",
                   slug: "vehicle-classification"
                 }
               ].map((svc, idx) => (
@@ -305,23 +330,24 @@ export default function Home() {
                     src={svc.img}
                     alt={svc.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-
+ 
                   {/* Premium Dark Navy Overlay Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/95 via-[#0a1628]/50 to-transparent"></div>
-
+ 
                   {/* Card Content absolute container */}
                   <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col items-start justify-end h-full z-10">
-                    <h3 className="text-xl sm:text-2xl font-black text-white mb-3 group-hover:text-hifi-orange transition-colors duration-300">
+                    <h3 className="text-xl sm:text-2xl font-ui font-bold text-white mb-3 group-hover:text-hifi-orange transition-colors duration-300">
                       {svc.title}
                     </h3>
-                    <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-6 line-clamp-3">
+                    <p className="font-sans font-normal text-white/70 text-xs sm:text-sm leading-relaxed mb-6 line-clamp-3">
                       {svc.desc}
                     </p>
-
+ 
                     {/* Learn More link */}
-                    <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-white group-hover:text-hifi-orange transition-colors overflow-hidden relative h-5">
+                    <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-ui font-bold text-white group-hover:text-hifi-orange transition-colors overflow-hidden relative h-5">
                       <span className="flex items-center gap-1.5 transition-transform duration-300 ease-out group-hover:-translate-y-6">
                         Learn More
                         <ArrowUpRight className="w-4 h-4 rotate-90" />
@@ -340,108 +366,16 @@ export default function Home() {
 
         <ProcessSection />
 
-        {/* TEAM SECTION */}
-        <section className="bg-slate-50/50 py-24 border-t border-b border-slate-100">
-          <div className="max-w-7xl mx-auto px-6">
-
-            {/* Header section matching Jurida style */}
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
-              {/* Left Header */}
-              <div className="max-w-2xl">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-[#0D2B6B] to-[#0D2B6B] rounded-full"></div>
-                  <span className="text-[#0D2B6B] font-semibold text-sm tracking-wide">
-                    Our Team
-                  </span>
-                </div>
-                <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#0D2B6B] tracking-tight leading-tight">
-                  Expert Traffic Analysts. Strategic Solutions.
-                </h2>
-              </div>
-
-              {/* Right Header */}
-              <div className="lg:max-w-md flex flex-col items-start gap-6">
-                <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
-                  A collaborative team committed to precise traffic analysis, data accuracy, and dependable engineering support.
-                </p>
-                <Link
-                  href="/about#team"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#0D2B6B] text-white text-sm font-bold rounded-lg hover:bg-[#07193f] transition-all duration-300 group shadow-sm"
-                >
-                  View All Members
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Team Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  name: "Dr. Rajesh Kumar",
-                  role: "Senior Traffic Engineer",
-                  img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop"
-                },
-                {
-                  name: "Priya Sharma",
-                  role: "Lead Traffic Analyst",
-                  img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop"
-                },
-                {
-                  name: "Amit Patel",
-                  role: "Field Operations Director",
-                  img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop"
-                }
-              ].map((member, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.15 }}
-                  className="relative h-[480px] rounded-2xl overflow-hidden shadow-lg border border-slate-100/50 group animate-in fade-in"
-                >
-                  {/* Background Image */}
-                  <Image
-                    src={member.img}
-                    alt={member.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-
-                  {/* Premium Dark Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/95 via-[#0a1628]/40 to-transparent"></div>
-
-                  {/* Top Right "+" Button Icon */}
-                  <div className="absolute top-6 right-6 w-10 h-10 rounded-lg bg-white/95 backdrop-blur-sm flex items-center justify-center text-[#0d2b6b] border border-slate-200/20 shadow-md group-hover:bg-[#F57C00] group-hover:text-white transition-colors duration-300">
-                    <span className="text-xl font-bold">+</span>
-                  </div>
-
-                  {/* Card Content absolute container */}
-                  <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col items-start justify-end h-full z-10">
-                    <h3 className="text-xl sm:text-2xl font-black text-white mb-1 group-hover:text-hifi-orange transition-colors duration-300">
-                      {member.name}
-                    </h3>
-                    <p className="text-white/70 text-xs sm:text-sm font-semibold uppercase tracking-wider">
-                      {member.role}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-          </div>
-        </section>
-
         {/* OUR COMMITMENT */}
-        <section className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden">
+        <section className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden mt-20 md:mt-32">
 
           {/* Background image placeholder — swap src for real traffic photo */}
           <div className="absolute inset-0">
             <Image
-              src="/about_us_traffic.png"
+              src="/our commitements.png"
               alt="Traffic engineering and analytics — HIFI commitment"
               fill
+              sizes="100vw"
               className="object-cover scale-105"
               priority={false}
             />
@@ -452,7 +386,7 @@ export default function Home() {
           </div>
 
           {/* Centered Content */}
-          <div className="relative z-10 max-w-[900px] mx-auto px-6 py-28 flex flex-col items-center gap-7 text-white text-center">
+          <div className="relative z-10 max-w-[900px] mx-auto px-6 py-16 md:py-24 flex flex-col items-center gap-6 text-white text-center">
 
             {/* Eyebrow */}
             <motion.div
@@ -462,11 +396,11 @@ export default function Home() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="flex items-center gap-3"
             >
-              <div className="w-10 h-[1.5px] bg-[#F57C00]" />
-              <span className="text-[11px] sm:text-xs font-bold tracking-[0.3em] text-[#F57C00] uppercase">
+              <div className="h-[2px] w-24 rounded-[10px] bg-gradient-to-r from-transparent via-white/50 to-white"></div>
+              <span className="text-white font-ui text-xs sm:text-sm font-bold uppercase tracking-wider">
                 Our Commitment
               </span>
-              <div className="w-10 h-[1.5px] bg-[#F57C00]" />
+              <div className="h-[2px] w-24 rounded-[10px] bg-gradient-to-l from-transparent via-white/50 to-white"></div>
             </motion.div>
 
             {/* Heading */}
@@ -475,9 +409,9 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 0.85, ease: "easeOut", delay: 0.18 }}
-              className="text-[38px] sm:text-[52px] md:text-[64px] lg:text-[72px] font-black leading-[1.08] tracking-tight"
+              className="text-[38px] sm:text-[52px] md:text-[64px] lg:text-[72px] font-display font-bold leading-[1.08] tracking-tight"
             >
-              Accuracy, Speed &amp; Trust<br className="hidden sm:block" /> in Every Project
+              Accuracy, Speed & Trust
             </motion.h2>
 
             {/* Description */}
@@ -486,13 +420,10 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.35 }}
-              className="text-white/75 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl space-y-3"
+              className="font-sans font-normal text-white/75 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl"
             >
               <p>
-                At HIFI TRAFFIC DATA TECH, we do not just count vehicles. We help clients convert survey videos into meaningful traffic data that supports real engineering decisions.
-              </p>
-              <p>
-                Our goal is to become a trusted traffic data partner for consultants and companies worldwide by delivering accurate reports, clear communication, and dependable support.
+                We transform survey videos into meaningful traffic data that supports real engineering decisions. Our mission is to be your trusted partner through accurate reports, clear communication, and dependable support.
               </p>
             </motion.div>
 
@@ -506,10 +437,16 @@ export default function Home() {
             >
               <Link
                 href="/get-quote"
-                className="inline-flex items-center justify-center gap-2.5 px-9 py-4 bg-white text-[#0D2B6B] text-sm font-bold rounded-lg hover:bg-[#F57C00] hover:text-white transition-all duration-300 shadow-2xl shadow-black/30 group"
+                className="inline-flex items-center justify-center gap-2.5 px-9 py-4 bg-white text-[#0D2B6B] font-ui text-sm font-bold rounded-lg hover:bg-[#F57C00] hover:text-white transition-all duration-300 shadow-2xl shadow-black/30 group overflow-hidden relative h-14"
               >
-                Get Started With Us
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <span className="flex items-center gap-2.5 transition-transform duration-300 ease-out group-hover:-translate-y-14">
+                  Get Started With Us
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
+                <span className="absolute flex items-center gap-2.5 translate-y-14 transition-transform duration-300 ease-out group-hover:translate-y-0">
+                  Get Started With Us
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
               </Link>
             </motion.div>
 

@@ -22,25 +22,25 @@ export default function Footer() {
               />
             </div>
             <div className="text-left">
-              <h1 className="text-xl font-black tracking-tight text-white leading-none flex items-center">
+              <h1 className="text-xl font-ui font-black tracking-tight text-white leading-none flex items-center">
                 HIFI<span className="text-[#F57C00] font-light ml-0.5">TRAFFIC</span>
               </h1>
-              <p className="text-[7px] uppercase tracking-[0.25em] text-slate-400 font-bold mt-0.5">
+              <p className="text-[7px] font-ui uppercase tracking-[0.25em] text-slate-400 font-bold mt-0.5">
                 Traffic Data Tech
               </p>
             </div>
           </Link>
-          <p className="text-sm leading-relaxed text-slate-400">
+          <p className="text-sm font-sans leading-relaxed text-slate-400">
             Delivering accurate traffic data and insights that drive better decisions and create better communities.
           </p>
         </div>
 
         {/* Column 2: Quick Links */}
         <div>
-          <h3 className="text-white text-sm font-bold tracking-wider uppercase mb-6">
+          <h3 className="text-white font-ui text-xs sm:text-sm font-bold tracking-wider uppercase mb-6">
             Quick Links
           </h3>
-          <ul className="space-y-3.5 text-sm">
+          <ul className="space-y-3.5 text-sm font-ui font-medium">
             <li>
               <Link href="/" className="hover:text-[#F57C00] transition-colors">
                 Home
@@ -56,11 +56,7 @@ export default function Footer() {
                 About
               </Link>
             </li>
-            <li>
-              <Link href="/#why-choose-hifi" className="hover:text-[#F57C00] transition-colors">
-                Why Us
-              </Link>
-            </li>
+        
             <li>
               <Link href="/contact" className="hover:text-[#F57C00] transition-colors">
                 Contact
@@ -76,27 +72,27 @@ export default function Footer() {
 
         {/* Column 3: Our Services */}
         <div>
-          <h3 className="text-white text-sm font-bold tracking-wider uppercase mb-6">
+          <h3 className="text-white font-ui text-xs sm:text-sm font-bold tracking-wider uppercase mb-6">
             Our Services
           </h3>
-          <ul className="space-y-3.5 text-sm">
+          <ul className="space-y-3.5 text-sm font-ui font-medium">
             <li>
-              <Link href="/services/traffic-volume-studies" className="hover:text-[#F57C00] transition-colors">
+              <Link href="/services#intersection-volume" className="hover:text-[#F57C00] transition-colors">
                 Traffic Volume Studies
               </Link>
             </li>
             <li>
-              <Link href="/services/turning-movement-counts" className="hover:text-[#F57C00] transition-colors">
+              <Link href="/services#intersection-volume" className="hover:text-[#F57C00] transition-colors">
                 Turning Movement Counts
               </Link>
             </li>
             <li>
-              <Link href="/services/pedestrian-counts" className="hover:text-[#F57C00] transition-colors">
+              <Link href="/services#active-transport" className="hover:text-[#F57C00] transition-colors">
                 Pedestrian Counts
               </Link>
             </li>
             <li>
-              <Link href="/services/vehicle-classification" className="hover:text-[#F57C00] transition-colors">
+              <Link href="/services#intersection-volume" className="hover:text-[#F57C00] transition-colors">
                 Vehicle Classification
               </Link>
             </li>
@@ -105,10 +101,10 @@ export default function Footer() {
 
         {/* Column 4: Contact */}
         <div>
-          <h3 className="text-white text-sm font-bold tracking-wider uppercase mb-6">
+          <h3 className="text-white font-ui text-xs sm:text-sm font-bold tracking-wider uppercase mb-6">
             Get In Touch
           </h3>
-          <ul className="space-y-4 text-sm text-slate-400">
+          <ul className="space-y-4 text-sm text-slate-400 font-sans">
             <li className="flex items-center gap-3">
               <Phone className="w-4 h-4 text-[#F57C00] flex-shrink-0" />
               <a href="tel:+919042801480" className="hover:text-white transition-colors">
@@ -133,7 +129,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-slate-800 bg-[#051433] py-6 text-xs text-slate-500 font-medium">
+      <div className="border-t border-slate-800 bg-[#051433] py-6 text-xs text-slate-500 font-sans font-medium">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span>
             &copy; {currentYear} HIFI Traffic Data Tech. All Rights Reserved.

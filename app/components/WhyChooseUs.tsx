@@ -99,7 +99,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="relative w-full bg-[#F6F9FC] py-20 lg:py-24 overflow-hidden border-t border-slate-100"
+      className="relative w-full bg-[#F6F9FC] py-16 md:py-24 overflow-hidden border-t border-slate-100"
     >
 
 
@@ -111,7 +111,7 @@ export default function WhyChooseUs() {
         {/* Header decoration lines */}
         <div className="relative w-full flex flex-col items-center justify-center text-center mb-16">
           {/* Main Title */}
-          <h2 className="text-3xl sm:text-[40px] font-extrabold tracking-tight leading-tight mb-8">
+          <h2 className="text-3xl sm:text-[40px] font-display font-bold tracking-tight leading-tight mb-8">
             <span className="text-[#0D2B6B]">Why Choose </span>
             <span className="italic font-black text-[#0D2B6B]">HIFI</span>
             <span className="text-[#FF5A1F] font-black"> TRAFFIC DATA TECH</span>
@@ -120,9 +120,9 @@ export default function WhyChooseUs() {
 
           {/* Center visual divider with text */}
           <div className="flex justify-center items-center gap-4">
-            <div className="w-32 h-[2px] bg-[#0D2B6B]" />
-            <span className="text-slate-500 text-sm font-semibold whitespace-nowrap">Accurate Data You Can Trust</span>
-            <div className="w-32 h-[2px] bg-[#0D2B6B]" />
+            <div className="h-[2px] w-24 rounded-[10px] bg-gradient-to-r from-transparent via-[#0D2B6B]/50 to-[#0D2B6B]" />
+            <span className="text-[#0D2B6B] font-ui font-bold text-sm tracking-wide whitespace-nowrap">Accurate Data You Can Trust</span>
+            <div className="h-[2px] w-24 rounded-[10px] bg-gradient-to-l from-transparent via-[#0D2B6B]/50 to-[#0D2B6B]" />
           </div>
         </div>
 
@@ -225,6 +225,7 @@ export default function WhyChooseUs() {
                 src="/about_us_traffic.png"
                 alt="Traffic analyst at dual border control room setup"
                 fill
+                sizes="340px"
                 className="object-cover"
               />
             </div>
@@ -247,11 +248,11 @@ export default function WhyChooseUs() {
                     </div>
                   </div>
                   {/* Content */}
-                  <h3 className="text-[13px] font-black text-[#0D2B6B] leading-tight">
+                  <h3 className="font-ui text-[13px] font-bold text-[#0D2B6B] leading-tight">
                     {item.title}
                   </h3>
                   <div className="w-10 h-[2px] bg-[#FF5A1F] mt-1.5 mb-1.5" />
-                  <p className="text-[10px] leading-[1.4] text-slate-500 font-semibold text-left">
+                  <p className="font-sans text-[10px] leading-[1.4] text-slate-500 text-left">
                     {item.desc}
                   </p>
                 </div>
@@ -276,11 +277,11 @@ export default function WhyChooseUs() {
                     </div>
                   </div>
                   {/* Content */}
-                  <h3 className="text-[13px] font-black text-[#0D2B6B] leading-tight">
+                  <h3 className="font-ui text-[13px] font-bold text-[#0D2B6B] leading-tight">
                     {item.title}
                   </h3>
                   <div className="w-10 h-[2px] bg-[#FF5A1F] mt-1.5 mb-1.5" />
-                  <p className="text-[10px] leading-[1.4] text-slate-500 font-semibold text-left">
+                  <p className="font-sans text-[10px] leading-[1.4] text-slate-500 text-left">
                     {item.desc}
                   </p>
                 </div>
@@ -302,6 +303,7 @@ export default function WhyChooseUs() {
                 src="/about_us_traffic.png"
                 alt="Traffic data analyst control room dashboard layout"
                 fill
+                sizes="(max-width: 640px) 280px, 320px"
                 className="object-cover"
               />
             </div>
@@ -325,11 +327,11 @@ export default function WhyChooseUs() {
                   </div>
                   {/* Text Details */}
                   <div className="flex flex-col items-start text-left">
-                    <h3 className="text-sm sm:text-base font-black text-[#0D2B6B] leading-tight">
+                    <h3 className="font-ui text-sm sm:text-base font-bold text-[#0D2B6B] leading-tight">
                       {item.title}
                     </h3>
                     <div className="w-10 h-[2px] bg-[#FF5A1F] mt-1.5 mb-1.5" />
-                    <p className="text-slate-500 text-xs font-semibold leading-relaxed">
+                    <p className="font-sans text-slate-500 text-xs leading-relaxed">
                       {item.desc}
                     </p>
                   </div>

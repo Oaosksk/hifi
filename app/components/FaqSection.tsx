@@ -48,16 +48,16 @@ export default function FaqSection() {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-[2px] bg-[#0D2B6B]"></div>
-                <span className="text-[#0D2B6B] font-bold text-xs uppercase tracking-wider">
+                <span className="text-[#0D2B6B] font-ui font-bold text-xs uppercase tracking-wider">
                   Support & Help
                 </span>
               </div>
               
-              <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#0D2B6B] tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-[40px] font-display font-bold text-[#0D2B6B] tracking-tight leading-tight">
                 Frequently Asked Questions
               </h2>
               
-              <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
+              <p className="font-sans text-slate-500 text-sm sm:text-base leading-relaxed">
                 Find answers to common questions about our traffic data services, templates, timelines, and operational coverage.
               </p>
             </div>
@@ -69,8 +69,8 @@ export default function FaqSection() {
               </div>
               
               <div className="space-y-2">
-                <h4 className="text-lg font-bold text-[#0D2B6B]">Still have questions?</h4>
-                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
+                <h4 className="font-ui text-lg font-bold text-[#0D2B6B]">Still have questions?</h4>
+                <p className="font-sans text-slate-500 text-xs sm:text-sm leading-relaxed">
                   Our engineering support desk is happy to help you with custom classifications, coordinates scoping, or urgent deadlines.
                 </p>
               </div>

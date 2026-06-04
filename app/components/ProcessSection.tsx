@@ -74,6 +74,7 @@ export default function ProcessSection() {
               src="/about_us_traffic.png"
               alt="Process background"
               fill
+              sizes="100vw"
               className="object-cover"
               priority
             />
@@ -88,14 +89,14 @@ export default function ProcessSection() {
               <div className="max-w-xl">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-white to-white rounded-full" />
-                  <span className="text-white/70 font-semibold text-sm tracking-wide">
+                  <span className="text-white/70 font-ui font-bold text-sm tracking-wide">
                     Our Process
                   </span>
                 </div>
-                <h2 className="text-[40px] xl:text-[44px] font-black text-white leading-[1.2] tracking-tight mb-8">
+                <h2 className="text-[40px] xl:text-[44px] font-display font-bold text-white leading-[1.2] tracking-tight mb-8">
                   Simple Workflow | Accurate Results | Reliable Delivery
                 </h2>
-                <p className="text-white/75 text-base leading-relaxed max-w-md font-medium">
+                <p className="font-sans font-normal text-white/75 text-base leading-relaxed max-w-md">
                   At HIFI TRAFFIC DATA TECH, we follow a professional and organized workflow to ensure every traffic survey project is completed with accuracy, consistency, and on-time delivery.
                 </p>
               </div>
@@ -128,25 +129,26 @@ export default function ProcessSection() {
             src="/about_us_traffic.png"
             alt="Process background"
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
           <div className="absolute inset-0 bg-[#071126]/88 mix-blend-multiply" />
         </div>
 
-        <div className="relative z-10 px-6 sm:px-12 py-20">
+        <div className="relative z-10 px-6 sm:px-12 py-16 md:py-24">
           {/* Header */}
           <div className="max-w-xl mb-12">
             <div className="flex items-center gap-4 mb-5">
               <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-white to-white rounded-full" />
-              <span className="text-white/70 font-semibold text-sm tracking-wide">
+              <span className="text-white/70 font-ui font-bold text-sm tracking-wide">
                 Our Process
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight tracking-tight mb-6">
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white leading-tight tracking-tight mb-6">
               Simple Workflow | Accurate Results | Reliable Delivery
             </h2>
-            <p className="text-white/75 text-sm sm:text-base leading-relaxed font-medium">
+            <p className="font-sans font-normal text-white/75 text-sm sm:text-base leading-relaxed">
               At HIFI TRAFFIC DATA TECH, we follow a professional and organized workflow to ensure every traffic survey project is completed with accuracy, consistency, and on-time delivery.
             </p>
           </div>
@@ -160,17 +162,26 @@ export default function ProcessSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="w-full rounded-xl p-10 sm:p-12 bg-[#edf2ff] shadow-xl flex flex-col items-start"
+                className="relative w-full rounded-xl p-10 sm:p-12 bg-[#edf2ff] shadow-xl flex flex-col items-start overflow-hidden border border-[#F57C00]/30"
               >
-                <span className="text-3xl font-black text-[#0D2B6B] tracking-tight leading-none mb-6 block">
-                  {step.number}
-                </span>
-                <h3 className="text-2xl font-black text-[#0D2B6B] leading-tight mb-4 tracking-tight">
+
+                {/* Decorative top-right corner bracket */}
+                <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-[#F57C00]/50 rounded-tr-sm" />
+                {/* Step number with orange accent */}
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="text-3xl font-ui font-black text-[#F57C00] tracking-tight leading-none">
+                    {step.number}
+                  </span>
+                  <div className="h-[2px] w-8 bg-[#F57C00]/40 rounded-full" />
+                </div>
+                <h3 className="text-2xl font-ui font-bold text-[#0D2B6B] leading-tight mb-4 tracking-tight">
                   {step.title}
                 </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-semibold">
+                <p className="font-sans font-normal text-slate-600 text-sm sm:text-base leading-relaxed">
                   {step.desc}
                 </p>
+                {/* Bottom orange connector line */}
+                <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-gradient-to-r from-[#F57C00]/60 via-[#F57C00]/20 to-transparent rounded-full" />
               </motion.div>
             ))}
           </div>
@@ -260,22 +271,35 @@ function ScrollCard({ step, index, total, progress }: ScrollCardProps) {
   return (
     <motion.div
       style={{ y, opacity, scale }}
-      className="absolute inset-0 w-full rounded-xl p-10 sm:p-12 bg-[#edf2ff] shadow-2xl flex flex-col items-start justify-center will-change-transform"
+      className="absolute inset-0 w-full rounded-xl p-10 sm:p-12 bg-[#edf2ff] shadow-2xl flex flex-col items-start justify-center will-change-transform overflow-hidden border border-[#F57C00]/30"
     >
-      {/* Step Number */}
-      <span className="text-3xl font-black text-[#0D2B6B] tracking-tight leading-none mb-6 block">
-        {step.number}
-      </span>
+
+
+      {/* Decorative top-right corner bracket */}
+      <div className="absolute top-5 right-5 w-7 h-7 border-t-2 border-r-2 border-[#F57C00]/50 rounded-tr-sm" />
+      {/* Decorative bottom-left corner bracket */}
+      <div className="absolute bottom-5 left-8 w-5 h-5 border-b-2 border-l-2 border-[#F57C00]/30 rounded-bl-sm" />
+
+      {/* Step Number with orange dash */}
+      <div className="flex items-center gap-3 mb-6">
+        <span className="text-3xl font-ui font-black text-[#F57C00] tracking-tight leading-none">
+          {step.number}
+        </span>
+        <div className="h-[2px] w-10 bg-gradient-to-r from-[#F57C00] to-[#F57C00]/20 rounded-full" />
+      </div>
 
       {/* Title */}
-      <h3 className="text-2xl sm:text-[28px] font-black text-[#0D2B6B] leading-tight mb-4 tracking-tight">
+      <h3 className="text-2xl sm:text-[28px] font-ui font-bold text-[#0D2B6B] leading-tight mb-4 tracking-tight">
         {step.title}
       </h3>
 
       {/* Description */}
-      <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-semibold">
+      <p className="font-sans font-normal text-slate-600 text-sm sm:text-base leading-relaxed">
         {step.desc}
       </p>
+
+      {/* Bottom orange connector line */}
+      <div className="absolute bottom-0 left-10 right-10 h-[2px] bg-gradient-to-r from-[#F57C00]/70 via-[#F57C00]/30 to-transparent rounded-full" />
     </motion.div>
   );
 }

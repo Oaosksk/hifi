@@ -128,14 +128,46 @@ export default function FaqPage() {
       <main className="flex-1 w-full bg-[#FCFDFE]">
         {/* Banner Hero with search */}
         <section className="bg-[#07193f] pt-32 pb-24 text-white relative overflow-hidden">
-          {/* Subtle Grid texture for dark hero */}
-          <div className="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+          {/* Document / Question Mark / Search SVG — FAQ page */}
+          <div className="absolute inset-0 select-none pointer-events-none overflow-hidden">
+            <svg viewBox="0 0 900 300" fill="none" className="absolute inset-0 w-full h-full opacity-[0.08]" preserveAspectRatio="xMidYMid slice">
+              {/* Left Side: Broadcast waves centered at (150, 150) */}
+              <circle cx="150" cy="150" r="70" stroke="white" strokeWidth="1" opacity="0.2" strokeDasharray="5,5" />
+              <circle cx="150" cy="150" r="100" stroke="white" strokeWidth="1.5" opacity="0.1" />
+              
+              {/* Left Side: Stylized Question Mark */}
+              <path d="M120 130 C120 90, 180 90, 180 130 C180 160, 150 165, 150 190" stroke="white" strokeWidth="6" strokeLinecap="round" fill="none" opacity="0.7" />
+              <circle cx="150" cy="215" r="5" fill="white" opacity="0.8" />
+              <path d="M100 130 C100 70, 200 70, 200 130 C200 150, 190 160, 175 175" stroke="white" strokeWidth="2" strokeDasharray="4,4" fill="none" opacity="0.4" />
+              
+              {/* Left Side: Floating chat bubble */}
+              <path d="M230 65 H260 A10 10 0 0 1 270 75 V85 A10 10 0 0 1 260 95 H240 L230 105 V95 A10 10 0 0 1 220 85 V75 A10 10 0 0 1 230 65 Z" stroke="white" strokeWidth="2.5" fill="none" opacity="0.6" />
+              <circle cx="240" cy="80" r="2" fill="white" opacity="0.6" />
+              <circle cx="245" cy="80" r="2" fill="white" opacity="0.6" />
+              <circle cx="250" cy="80" r="2" fill="white" opacity="0.6" />
+
+              {/* Right Side: Broadcast waves centered at (735, 150) */}
+              <circle cx="735" cy="150" r="80" stroke="white" strokeWidth="1" opacity="0.2" strokeDasharray="5,5" />
+              <circle cx="735" cy="150" r="110" stroke="white" strokeWidth="1.5" opacity="0.1" />
+
+              {/* Right Side: Stylized Folded Document */}
+              <path d="M700 80 H750 L770 100 V220 H700 Z" stroke="white" strokeWidth="4" fill="none" strokeLinejoin="round" opacity="0.7" />
+              <path d="M750 80 V100 H770" stroke="white" strokeWidth="2" fill="none" strokeLinejoin="round" opacity="0.7" />
+              <line x1="715" y1="125" x2="755" y2="125" stroke="white" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+              <line x1="715" y1="145" x2="755" y2="145" stroke="white" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+              <line x1="715" y1="165" x2="745" y2="165" stroke="white" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+              <line x1="715" y1="185" x2="735" y2="185" stroke="white" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+
+              {/* Right Side: Floating chat bubble */}
+              <path d="M635 215 H655 A8 8 0 0 1 663 223 V231 A8 8 0 0 1 655 239 H645 L637 247 V239 A8 8 0 0 1 627 231 V223 A8 8 0 0 1 635 215 Z" stroke="white" strokeWidth="2" fill="none" opacity="0.5" />
+            </svg>
+          </div>
 
           <div className="max-w-4xl mx-auto px-6 relative z-10 text-center space-y-6">
-            <span className="text-[#F57C00] font-bold text-xs uppercase tracking-widest block">
+            <span className="text-[#F57C00] font-ui font-bold text-xs uppercase tracking-widest block">
               knowledge center & support
             </span>
-            <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+            <h1 className="text-4xl sm:text-6xl font-display font-bold tracking-tight text-white leading-tight">
               How can we help?
             </h1>
 
@@ -152,7 +184,7 @@ export default function FaqPage() {
                   setActiveSearchFaq(null);
                 }}
                 placeholder="Ask a question..."
-                className="w-full pl-12 pr-4 py-4 text-sm sm:text-base text-slate-800 focus:outline-none bg-white placeholder-slate-400"
+                className="w-full pl-12 pr-4 py-4 text-sm sm:text-base font-sans text-slate-800 focus:outline-none bg-white placeholder-slate-400"
               />
             </div>
 
@@ -163,7 +195,7 @@ export default function FaqPage() {
                 <button
                   key={idx}
                   onClick={() => setSearchQuery(pill)}
-                  className="px-3.5 py-1 rounded-full bg-white/10 text-white font-medium hover:bg-white/20 transition-all border border-white/10 cursor-pointer"
+                  className="px-3.5 py-1 rounded-full bg-white/10 text-white font-ui font-medium hover:bg-white/20 transition-all border border-white/10 cursor-pointer"
                 >
                   {pill}
                 </button>
@@ -178,12 +210,12 @@ export default function FaqPage() {
             /* Search Results View */
             <div className="max-w-3xl mx-auto space-y-6">
               <div className="flex items-center justify-between pb-4 border-b border-slate-200">
-                <h3 className="text-lg font-bold text-[#0D2B6B]">
+                <h3 className="font-ui text-lg font-bold text-[#0D2B6B]">
                   Search Results ({filteredFaqs.length})
                 </h3>
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="text-xs font-bold text-[#F57C00] hover:underline cursor-pointer"
+                  className="text-xs font-ui font-bold text-[#F57C00] hover:underline cursor-pointer"
                 >
                   Clear search
                 </button>
@@ -206,7 +238,7 @@ export default function FaqPage() {
                             <span className="text-[10px] font-bold text-[#F57C00] uppercase tracking-wider">
                               {faq.category}
                             </span>
-                            <h4 className="text-sm sm:text-base font-bold text-[#0D2B6B]">
+                            <h4 className="font-ui text-sm sm:text-base font-bold text-[#0D2B6B]">
                               {faq.q}
                             </h4>
                           </div>
@@ -232,7 +264,7 @@ export default function FaqPage() {
                   <p className="text-slate-400 text-sm font-semibold mb-4">No results found matching "{searchQuery}"</p>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 px-5 py-3 bg-[#0D2B6B] text-white text-xs font-bold rounded-lg hover:bg-[#07193f] transition-all"
+                    className="inline-flex items-center gap-2 px-5 py-3 bg-[#0D2B6B] text-white font-ui text-xs font-bold rounded-lg hover:bg-[#07193f] transition-all"
                   >
                     Contact Support Desk
                     <ArrowUpRight className="w-4 h-4" />
@@ -250,7 +282,7 @@ export default function FaqPage() {
                 >
                   {/* Category Header */}
                   <div className="p-6 sm:p-8 border-b border-slate-50 bg-slate-50/50 flex items-center justify-between">
-                    <h3 className="text-base sm:text-lg font-black text-[#0D2B6B]">
+                    <h3 className="font-ui text-base sm:text-lg font-bold text-[#0D2B6B]">
                       {category.title}
                     </h3>
                     <ArrowRight className="w-4.5 h-4.5 text-slate-400" />
@@ -266,7 +298,7 @@ export default function FaqPage() {
                             onClick={() => setActiveFaq(isOpen ? null : { catIndex, faqIndex })}
                             className="w-full flex items-start justify-between text-left group gap-2 py-1"
                           >
-                            <span className="text-xs sm:text-sm font-bold text-slate-700 group-hover:text-[#F57C00] transition-colors leading-relaxed">
+                            <span className="font-ui text-xs sm:text-sm font-bold text-slate-700 group-hover:text-[#F57C00] transition-colors leading-relaxed">
                               {question.q}
                             </span>
                             <ChevronDown className={`w-3.5 h-3.5 text-slate-400 mt-1 flex-shrink-0 transition-transform duration-300 ${isOpen ? "transform rotate-180 text-[#F57C00]" : ""
@@ -277,7 +309,7 @@ export default function FaqPage() {
                             className={`transition-all duration-300 ease-in-out ${isOpen ? "max-h-40 mt-2 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
                               }`}
                           >
-                            <p className="text-xs text-slate-500 leading-relaxed pl-2 border-l-2 border-[#F57C00]/40">
+                            <p className="font-sans text-xs text-slate-500 leading-relaxed pl-2 border-l-2 border-[#F57C00]/40">
                               {question.a}
                             </p>
                           </div>
@@ -300,10 +332,10 @@ export default function FaqPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="text-xl sm:text-2xl font-black tracking-tight leading-none text-white">
+                    <h3 className="font-ui text-xl sm:text-2xl font-bold tracking-tight leading-none text-white">
                       Haven't found what you need?
                     </h3>
-                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    <p className="font-sans text-slate-300 text-xs sm:text-sm leading-relaxed">
                       Get in touch with us — we are always online and happy to help count your surveys.
                     </p>
                   </div>
@@ -312,7 +344,7 @@ export default function FaqPage() {
                 <div className="pt-6 relative z-10">
                   <Link
                     href="/contact"
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-[#0D2B6B] hover:bg-[#F57C00] hover:text-white font-bold text-xs sm:text-sm rounded-xl transition-all duration-300 shadow-md group"
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-[#0D2B6B] hover:bg-[#F57C00] hover:text-white font-ui font-bold text-xs sm:text-sm rounded-xl transition-all duration-300 shadow-md group"
                   >
                     Contact us
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
