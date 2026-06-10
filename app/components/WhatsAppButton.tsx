@@ -1,9 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const LOADER_DURATION_MS = 1800;
 
 export default function WhatsAppButton() {
+  const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const [loadingActive, setLoadingActive] = useState(false);
+
+  useEffect(() => {
+    const checkLoading = () => {
+      setLoadingActive(document.documentElement.classList.contains("loading-active"));
+    };
+    
+    // Check initially
+    checkLoading();
+
+    // Monitor loading-active class additions/removals
+    const observer = new MutationObserver(checkLoading);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const alreadyLoaded = sessionStorage.getItem("hifi_loaded");
+    const delay = alreadyLoaded ? 400 : LOADER_DURATION_MS;
+    const timer = setTimeout(() => {
+      setVisible(true);
+      sessionStorage.setItem("hifi_loaded", "1");
+    }, delay);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!visible || loadingActive) return null;
 
   return (
     <a
@@ -15,16 +49,17 @@ export default function WhatsAppButton() {
       onMouseLeave={() => setHovered(false)}
       style={{
         position: "fixed",
-        bottom: "40px",
+        bottom: "48px",
         right: "28px",
         zIndex: 9999,
         display: "flex",
         alignItems: "center",
         gap: "12px",
         textDecoration: "none",
+        animation: "wa-fadein 0.4s ease forwards",
       }}
     >
-      {/* Tooltip label */}
+      {/* Tooltip */}
       <span
         style={{
           background: "#07193f",
@@ -37,7 +72,6 @@ export default function WhatsAppButton() {
           borderRadius: "8px",
           whiteSpace: "nowrap",
           boxShadow: "0 4px 16px rgba(7,25,63,0.25)",
-          border: "1px solid rgba(255,255,255,0.08)",
           opacity: hovered ? 1 : 0,
           transform: hovered ? "translateX(0) scale(1)" : "translateX(10px) scale(0.95)",
           transition: "opacity 0.2s ease, transform 0.2s ease",
@@ -53,59 +87,55 @@ export default function WhatsAppButton() {
         <span
           style={{
             position: "absolute",
-            inset: "-4px",
+            inset: "-5px",
             borderRadius: "50%",
             background: "#F57C00",
             animation: "wa-pulse 2.2s ease-out infinite",
-            opacity: 0.4,
+            opacity: 0.35,
           }}
         />
 
-        {/* Icon square */}
+        {/* Circle button — always orange */}
         <div
           style={{
-            width: "56px",
-            height: "56px",
+            width: "58px",
+            height: "58px",
             borderRadius: "50%",
             background: "linear-gradient(135deg, #F57C00 0%, #E65100 100%)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             boxShadow: hovered
-              ? "0 8px 28px rgba(245,124,0,0.45)"
-              : "0 6px 24px rgba(245,124,0,0.35)",
-            transform: hovered ? "scale(1.08) translateY(-2px)" : "scale(1) translateY(0)",
+              ? "0 10px 32px rgba(245,124,0,0.55)"
+              : "0 6px 24px rgba(245,124,0,0.40)",
+            transform: hovered ? "scale(1.1) translateY(-3px)" : "scale(1) translateY(0)",
             transition: "all 0.28s cubic-bezier(.34,1.56,.64,1)",
             position: "relative",
             zIndex: 1,
-            border: "2px solid rgba(255,255,255,0.12)",
           }}
         >
-          {/* WhatsApp SVG */}
+          {/* Official WhatsApp icon path */}
           <svg
-            width="32"
-            height="32"
-            viewBox="0 0 175.216 175.552"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            width="30"
+            height="30"
+            fill="white"
           >
-            <path
-              d="M149.995 25.157C133.302 8.423 111.35 0 87.531 0 39.766 0 .897 38.869.897 86.634c0 15.281 3.989 30.197 11.592 43.382L0 175.552l46.739-12.26c12.71 6.926 27.016 10.58 41.556 10.58h.036c47.729 0 86.634-38.869 86.634-86.634 0-23.155-9.047-44.91-25.47-61.081zM87.531 158.45c-12.944 0-25.615-3.477-36.669-10.038l-2.628-1.56-27.255 7.149 7.279-26.544-1.714-2.725c-7.185-11.427-10.986-24.66-10.986-38.19 0-39.64 32.266-71.906 71.973-71.906 19.231 0 37.31 7.494 50.925 21.109 13.615 13.615 21.109 31.73 21.109 50.96-.036 39.676-32.302 71.906-71.906 71.906z"
-              fill="white"
-            />
-            <path
-              d="M127.822 105.475c-2.165-1.082-12.8-6.315-14.786-7.041-1.986-.726-3.432-1.082-4.878 1.082-1.446 2.165-5.604 7.041-6.868 8.487-1.264 1.446-2.528 1.628-4.693.546-2.165-1.082-9.139-3.37-17.409-10.747-6.433-5.74-10.771-12.836-12.035-15.001-1.264-2.165-.134-3.335.95-4.417.974-.938 2.165-2.446 3.247-3.668.99-1.222 1.446-2.165 2.165-3.611.726-1.446.363-2.668-.182-3.75-.546-1.082-4.878-11.753-6.682-16.086-1.758-4.224-3.54-3.65-4.878-3.716-.926-.066-1.986-.066-3.432-.066s-3.15.546-4.832 2.668c-1.714 2.165-6.544 6.379-6.544 15.575 0 9.195 6.682 18.09 7.628 19.337.95 1.446 13.267 20.247 32.146 28.403 4.485 1.94 7.991 3.102 10.719 3.964 4.505 1.43 8.608 1.222 11.851.753 3.614-.546 11.217-4.588 12.8-9.025 1.584-4.437 1.584-8.237 1.104-9.025-.48-.788-1.926-1.264-4.091-2.346z"
-              fill="white"
-            />
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
           </svg>
         </div>
       </div>
 
       <style>{`
         @keyframes wa-pulse {
-          0%   { transform: scale(1);    opacity: 0.4; }
-          70%  { transform: scale(1.55); opacity: 0; }
-          100% { transform: scale(1.55); opacity: 0; }
+          0%   { transform: scale(1);    opacity: 0.35; }
+          70%  { transform: scale(1.6);  opacity: 0; }
+          100% { transform: scale(1.6);  opacity: 0; }
+        }
+        @keyframes wa-fadein {
+          from { opacity: 0; transform: translateY(12px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </a>

@@ -10,14 +10,21 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
   const logoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    document.documentElement.classList.add("loading-active");
+    return () => {
+      document.documentElement.classList.remove("loading-active");
+    };
+  }, []);
+
+  useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
       // Logo entrance
       tl.fromTo(
         logoRef.current,
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }
       );
 
       // Counter animation
@@ -26,18 +33,18 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
         obj,
         {
           value: 100,
-          duration: 2,
+          duration: 1.0,
           ease: "power1.inOut",
           onUpdate: () => setPercent(Math.floor(obj.value)),
         },
-        "+=0.1"
+        "+=0.0"
       );
 
       // Fade out
       tl.to(
         containerRef.current,
-        { opacity: 0, duration: 0.5, ease: "power2.inOut", onComplete },
-        "+=0.3"
+        { opacity: 0, duration: 0.3, ease: "power2.inOut", onComplete },
+        "+=0.1"
       );
     });
 
