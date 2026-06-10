@@ -193,7 +193,7 @@ export async function POST(request: NextRequest) {
   // 8. Zod validation
   const result = schema.safeParse(sanitized);
   if (!result.success) {
-    const firstError = result.error.errors[0]?.message ?? "Validation failed.";
+    const firstError = result.error.issues[0]?.message ?? "Validation failed.";
     return Response.json(
       { success: false, error: firstError },
       { status: 422 }
