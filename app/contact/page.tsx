@@ -74,6 +74,7 @@ export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [phoneError, setPhoneError] = useState<string | null>(null);
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [files, setFiles] = useState<File[]>([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -142,6 +143,38 @@ export default function ContactPage() {
       setIsSubmitting(false);
     }
   };
+
+  // Phone: block letters in real-time and strip on paste
+  const handlePhoneInput = (e: React.FormEvent<HTMLInputElement>) => {
+    const input = e.currentTarget;
+    const raw = input.value;
+    // Allow only: digits, +, -, spaces, (, )
+    const cleaned = raw.replace(/[^\d+\-\s().]/g, "");
+    if (cleaned !== raw) {
+      input.value = cleaned;
+      setPhoneError("Only digits, +, -, spaces and ( ) are allowed");
+    } else if (raw.length > 0 && !/^[+\d]/.test(raw)) {
+      setPhoneError("Phone number must start with + or a digit");
+    } else if (raw.replace(/\D/g, "").length < 5 && raw.length > 0) {
+      setPhoneError("Enter a valid phone number");
+    } else {
+      setPhoneError(null);
+    }
+  };
+
+  const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Allow: Backspace, Delete, Tab, Escape, Enter, arrows, Home/End
+    const allowed = ["Backspace","Delete","Tab","Escape","Enter","ArrowLeft","ArrowRight","ArrowUp","ArrowDown","Home","End"];
+    if (allowed.includes(e.key)) return;
+    // Allow Ctrl/Cmd combos (copy, paste, select all)
+    if (e.ctrlKey || e.metaKey) return;
+    // Allow: digits, +, -, space, (, )
+    if (/[\d+\-\s().]/.test(e.key)) return;
+    // Block everything else
+    e.preventDefault();
+    setPhoneError("Only digits, +, -, spaces and ( ) are allowed");
+  };
+
 
   return (
     <SmoothScroll>
@@ -449,9 +482,20 @@ export default function ContactPage() {
                             type="tel"
                             name="phone"
                             required
-                            className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
-                            placeholder="Enter Phone Number"
+                            inputMode="tel"
+                            maxLength={20}
+                            onKeyDown={handlePhoneKeyDown}
+                            onInput={handlePhoneInput}
+                            onChange={() => phoneError && setPhoneError(null)}
+                            className={`w-full bg-white border rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:ring-2 transition-all ${phoneError ? 'border-red-400 focus:border-red-400 focus:ring-red-200' : 'border-slate-200 focus:border-[#F57C00] focus:ring-[#F57C00]/20'}`}
+                            placeholder="e.g. +91 90428 01480"
                           />
+                          {phoneError && (
+                            <p className="mt-1.5 text-xs font-sans text-red-600 flex items-center gap-1">
+                              <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                              {phoneError}
+                            </p>
+                          )}
                         </div>
                       </div>
 
