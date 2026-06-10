@@ -174,7 +174,7 @@ export default function Home() {
                 {/* Professional Team Image */}
                 <div className="relative w-full aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-100/50">
                   <Image
-                    src="/about_us_traffic.png"
+                    src="/abutus.png"
                     alt="HIFI Traffic Data Tech team monitoring traffic systems"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 40vw"
@@ -214,7 +214,7 @@ export default function Home() {
                 <div className="flex flex-wrap items-center justify-between gap-8 pt-10 border-t border-slate-100 mt-4">
                   <div className="flex-1 min-w-[120px]">
                     <div className="text-3xl font-ui font-black text-[#0D2B6B] mb-0.5">
-                      <Counter end={10} suffix="+" />
+                      <Counter end={5} suffix="+" />
                     </div>
                     <div className="text-[10px] font-ui text-slate-500 font-bold tracking-wider uppercase">
                       Years of Experience
@@ -224,7 +224,7 @@ export default function Home() {
 
                   <div className="flex-1 min-w-[120px]">
                     <div className="text-3xl font-ui font-black text-[#0D2B6B] mb-0.5">
-                      <Counter end={500} suffix="+" />
+                      <Counter end={10} suffix="K+" />
                     </div>
                     <div className="text-[10px] font-ui text-slate-500 font-bold tracking-wider uppercase">
                       Projects Completed
@@ -234,7 +234,7 @@ export default function Home() {
 
                   <div className="flex-1 min-w-[120px]">
                     <div className="text-3xl font-ui font-black text-[#0D2B6B] mb-0.5">
-                      <Counter end={250} suffix="+" />
+                      <Counter end={15} suffix="+" />
                     </div>
                     <div className="text-[10px] font-ui text-slate-500 font-bold tracking-wider uppercase">
                       Happy Clients
@@ -244,7 +244,7 @@ export default function Home() {
 
                   <div className="flex-1 min-w-[120px]">
                     <div className="text-3xl font-ui font-black text-[#0D2B6B] mb-0.5">
-                      <Counter end={15} suffix="+" />
+                      <Counter end={10} suffix="+" />
                     </div>
                     <div className="text-[10px] font-ui text-slate-500 font-bold tracking-wider uppercase">
                       Countries Served
@@ -306,7 +306,7 @@ export default function Home() {
                 {
                   title: "Traffic Volume Count",
                   desc: "We provide accurate vehicle volume counts for roads, highways, site access points, and intersections. Data can be delivered by direction, time interval, lane, and vehicle type based on client requirements. This service helps clients understand traffic flow, peak-hour demand, road usage, and future planning needs.",
-                  img: "/Our Services/traffic-volume/traffic-volume.png",
+                  img: "/traffic-volume.png",
                   slug: "traffic-volume-studies"
                 },
                 {
@@ -318,7 +318,7 @@ export default function Home() {
                 {
                   title: "Vehicle Classification Count",
                   desc: "We classify vehicles based on client-required categories such as car, motorcycle, bicycle, bus, light goods vehicle, heavy goods vehicle, truck, trailer, and other classes. We also support country-wise vehicle classification formats including USA, UK, Australia, South Africa, and other project-specific standards.",
-                  img: "/Our Services/Link Count Surveys/360_F_126616293_rpRrEdTPBT23B5aJIcmyIFpLBd7nzN0g.png",
+                  img: "/Our%20Services/Link%20Count%20Surveys/360_F_126616293_rpRrEdTPBT23B5aJIcmyIFpLBd7nzN0g.png",
                   slug: "vehicle-classification"
                 }
               ].map((svc, idx) => (

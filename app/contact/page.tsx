@@ -72,6 +72,8 @@ const COUNTRIES = [
 
 export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [files, setFiles] = useState<File[]>([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -116,9 +118,29 @@ export default function ContactPage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    // Append selected services as a comma-separated string
+    fd.set("services", selectedServices.join(", "));
+
+    try {
+      const res = await fetch("/api/contact", { method: "POST", body: fd });
+      const json = await res.json();
+      if (!res.ok || !json.success) {
+        throw new Error(json.error || "Something went wrong. Please try again.");
+      }
+      setFormSubmitted(true);
+    } catch (err: unknown) {
+      setSubmitError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -309,7 +331,7 @@ export default function ContactPage() {
                     { 
                       icon: TrendingUp, 
                       title: "Proven Track Record", 
-                      desc: "Successfully delivered 500+ projects across 10+ countries" 
+                      desc: "Successfully delivered 10K+ projects across 10+ countries" 
                     }
                   ].map((item, idx) => (
                     <div key={idx} className="flex gap-4 items-start group">
@@ -359,6 +381,7 @@ export default function ContactPage() {
                         setFormSubmitted(false);
                         setSelectedServices([]);
                         setFiles([]);
+                        setSubmitError(null);
                       }}
                       className="text-sm font-bold text-[#F57C00] hover:underline"
                     >
@@ -366,15 +389,23 @@ export default function ContactPage() {
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-8">
+                  <form onSubmit={handleSubmit} className="space-y-8" encType="multipart/form-data">
                     <div>
                       <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#0D2B6B] mb-2">
-                        Let's Discuss Your Traffic Project
+                        Let&apos;s Discuss Your Traffic Project
                       </h3>
                       <p className="font-sans text-slate-500 text-sm">
-                        Fill out the form below and we'll get back to you as soon as possible.
+                        Fill out the form below and we&apos;ll get back to you as soon as possible.
                       </p>
                     </div>
+
+                    {/* Error banner */}
+                    {submitError && (
+                      <div className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                        <svg className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <p className="text-sm font-sans text-red-700">{submitError}</p>
+                      </div>
+                    )}
 
                     {/* Contact Details */}
                     <div className="space-y-6">
@@ -382,7 +413,8 @@ export default function ContactPage() {
                         <div>
                           <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Full Name</label>
                           <input 
-                            type="text" 
+                            type="text"
+                            name="name"
                             required
                             className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                             placeholder="Enter Your Name"
@@ -391,7 +423,8 @@ export default function ContactPage() {
                         <div>
                           <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Company / Organization</label>
                           <input 
-                            type="text" 
+                            type="text"
+                            name="company"
                             required
                             className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                             placeholder="Enter Company Name"
@@ -403,7 +436,8 @@ export default function ContactPage() {
                         <div>
                           <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Business Email</label>
                           <input 
-                            type="email" 
+                            type="email"
+                            name="email"
                             required
                             className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                             placeholder="Enter Your Email Address"
@@ -412,7 +446,8 @@ export default function ContactPage() {
                         <div>
                           <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Contact Number</label>
                           <input 
-                            type="tel" 
+                            type="tel"
+                            name="phone"
                             required
                             className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                             placeholder="Enter Phone Number"
@@ -423,6 +458,7 @@ export default function ContactPage() {
                       <div>
                         <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Country / Region</label>
                         <select 
+                          name="country"
                           required
                           defaultValue=""
                           className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
@@ -525,6 +561,7 @@ export default function ContactPage() {
                         <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Survey Location Details</label>
                         <input 
                           type="text"
+                          name="location"
                           required
                           className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                           placeholder="Enter Site Location / Junction Name"
@@ -534,6 +571,7 @@ export default function ContactPage() {
                       <div>
                         <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Project Requirement</label>
                         <textarea 
+                          name="requirement"
                           rows={4}
                           required
                           className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
@@ -585,6 +623,7 @@ export default function ContactPage() {
                       <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Delivery Requirement</label>
                       <input 
                         type="date"
+                        name="deliveryDate"
                         required
                         className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
                       />
@@ -592,16 +631,26 @@ export default function ContactPage() {
 
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#F57C00] text-white font-ui text-sm font-bold rounded-lg hover:bg-[#E65100] transition-all shadow-md group overflow-hidden relative h-14"
+                      disabled={isSubmitting}
+                      className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#F57C00] text-white font-ui text-sm font-bold rounded-lg hover:bg-[#E65100] disabled:opacity-70 disabled:cursor-not-allowed transition-all shadow-md group overflow-hidden relative h-14"
                     >
-                      <span className="flex items-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-14">
-                        Request Traffic Data Support
-                        <ArrowUpRight className="w-4 h-4" />
-                      </span>
-                      <span className="absolute flex items-center gap-2 translate-y-14 transition-transform duration-300 ease-out group-hover:translate-y-0">
-                        Request Traffic Data Support
-                        <ArrowUpRight className="w-4 h-4" />
-                      </span>
+                      {isSubmitting ? (
+                        <span className="flex items-center gap-2">
+                          <svg className="animate-spin w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/></svg>
+                          Sending...
+                        </span>
+                      ) : (
+                        <>
+                          <span className="flex items-center gap-2 transition-transform duration-300 ease-out group-hover:-translate-y-14">
+                            Request Traffic Data Support
+                            <ArrowUpRight className="w-4 h-4" />
+                          </span>
+                          <span className="absolute flex items-center gap-2 translate-y-14 transition-transform duration-300 ease-out group-hover:translate-y-0">
+                            Request Traffic Data Support
+                            <ArrowUpRight className="w-4 h-4" />
+                          </span>
+                        </>
+                      )}
                     </button>
                   </form>
                 )}

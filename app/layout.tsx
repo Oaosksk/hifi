@@ -40,7 +40,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${dmSans.variable} ${dmSerifDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans text-foreground bg-white">
+      <body className="min-h-full flex flex-col font-sans text-foreground bg-white" suppressHydrationWarning>
         {children}
       </body>
     </html>

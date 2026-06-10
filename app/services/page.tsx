@@ -16,7 +16,7 @@ const CATEGORIES = [
       {
         title: "Traffic Volume Count",
         desc: "We provide accurate vehicle volume counts for roads, highways, site access points, and intersections. Data can be delivered by direction, time interval, lane, and vehicle type based on client requirements.",
-        asset: "/Our Services/traffic-volume/traffic-volume.png"
+        asset: "/traffic-volume.png"
       },
       {
         title: "Turning Movement Count",
@@ -26,7 +26,7 @@ const CATEGORIES = [
       {
         title: "Vehicle Classification Count",
         desc: "We classify vehicles based on client-required categories such as car, motorcycle, bicycle, bus, light goods vehicle, heavy goods vehicle, truck, trailer, and custom classification schemas.",
-        asset: "/Our Services/Link Count Surveys/360_F_126616293_rpRrEdTPBT23B5aJIcmyIFpLBd7nzN0g.png"
+        asset: "/Our%20Services/Link%20Count%20Surveys/360_F_126616293_rpRrEdTPBT23B5aJIcmyIFpLBd7nzN0g.png"
       },
       {
         title: "Speed & Travel Time Analysis",

@@ -28,6 +28,7 @@ export default function Header() {
   const isHomeActive = pathname === "/";
   const isServicesActive = pathname === "/services" || pathname.startsWith("/services/");
   const isAboutActive = pathname === "/about" || pathname.startsWith("/about/");
+  const isFaqActive = pathname === "/faq" || pathname.startsWith("/faq/");
   const isContactActive = pathname === "/contact" || pathname.startsWith("/contact/");
 
   const getNavLinkClass = (isActive: boolean) => {
@@ -94,11 +95,14 @@ export default function Header() {
           <Link href="/" className={getNavLinkClass(isHomeActive)}>
             Home
           </Link>
+          <Link href="/about" className={getNavLinkClass(isAboutActive)}>
+            About
+          </Link>
           <Link href="/services" className={getNavLinkClass(isServicesActive)}>
             Services
           </Link>
-          <Link href="/about" className={getNavLinkClass(isAboutActive)}>
-            About
+          <Link href="/faq" className={getNavLinkClass(isFaqActive)}>
+            FAQ
           </Link>
           <Link href="/contact" className={getNavLinkClass(isContactActive)}>
             Contact
@@ -147,6 +151,13 @@ export default function Header() {
             Home
           </Link>
           <Link
+            href="/about"
+            onClick={() => setMobileMenuOpen(false)}
+            className={getMobileNavLinkClass(isAboutActive)}
+          >
+            About
+          </Link>
+          <Link
             href="/services"
             onClick={() => setMobileMenuOpen(false)}
             className={getMobileNavLinkClass(isServicesActive)}
@@ -154,11 +165,11 @@ export default function Header() {
             Services
           </Link>
           <Link
-            href="/about"
+            href="/faq"
             onClick={() => setMobileMenuOpen(false)}
-            className={getMobileNavLinkClass(isAboutActive)}
+            className={getMobileNavLinkClass(isFaqActive)}
           >
-            About
+            FAQ
           </Link>
           <Link
             href="/contact"

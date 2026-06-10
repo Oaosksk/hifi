@@ -71,7 +71,7 @@ export default function ProcessSection() {
           {/* Full-bleed background image */}
           <div className="absolute inset-0 z-0 select-none pointer-events-none">
             <Image
-              src="/about_us_traffic.png"
+              src="/cover.png"
               alt="Process background"
               fill
               sizes="100vw"
@@ -126,7 +126,7 @@ export default function ProcessSection() {
         {/* Full background */}
         <div className="absolute inset-0 z-0 select-none pointer-events-none">
           <Image
-            src="/about_us_traffic.png"
+            src="/cover.png"
             alt="Process background"
             fill
             sizes="100vw"
