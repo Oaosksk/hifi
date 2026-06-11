@@ -85,7 +85,7 @@ export default function Header() {
               className={`text-[5px] sm:text-[7px] font-ui uppercase tracking-[0.25em] font-bold mt-0.5 transition-colors duration-300 ${isSolid ? "text-slate-500" : "text-slate-300"
                 }`}
             >
-              Traffic Data Tech
+               Data Tech
             </p>
           </div>
         </Link>

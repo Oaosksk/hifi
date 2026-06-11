@@ -26,7 +26,7 @@ export default function Footer() {
                 HIFI<span className="text-[#F57C00] font-light ml-0.5">TRAFFIC</span>
               </h1>
               <p className="text-[7px] font-ui uppercase tracking-[0.25em] text-slate-400 font-bold mt-0.5">
-                Traffic Data Tech
+                 Data Tech
               </p>
             </div>
           </Link>
