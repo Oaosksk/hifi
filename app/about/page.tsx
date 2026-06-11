@@ -84,7 +84,7 @@ export default function AboutPage() {
             {/* Left: Image */}
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-slate-100/50">
               <Image
-                src="/abutus.png"
+                src="/aboutus.png"
                 alt="HIFI Traffic Data Tech professional team"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

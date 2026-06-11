@@ -174,7 +174,7 @@ export default function Home() {
                 {/* Professional Team Image */}
                 <div className="relative w-full aspect-[4/3] md:aspect-[3/2] lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-100/50">
                   <Image
-                    src="/abutus.png"
+                    src="/aboutus.png"
                     alt="HIFI Traffic Data Tech team monitoring traffic systems"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 40vw"
