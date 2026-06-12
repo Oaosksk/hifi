@@ -212,7 +212,7 @@ export async function POST(request: NextRequest) {
     country:      escapeHtml(data.country),
     services:     escapeHtml(data.services ?? "Not specified"),
     location:     escapeHtml(data.location),
-    requirement:  escapeHtml(data.requirement).replace(/\n/g, "<br>"),
+    requirement:  escapeHtml(data.requirement ?? "").replace(/\n/g, "<br>"),
     deliveryDate: escapeHtml(data.deliveryDate),
   };
 
