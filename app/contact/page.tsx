@@ -613,13 +613,15 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Project Requirement</label>
+                        <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">
+                          Project Requirement
+                          <span className="ml-2 text-[10px] font-sans normal-case tracking-normal text-slate-400">(optional)</span>
+                        </label>
                         <textarea 
                           name="requirement"
                           rows={4}
-                          required
                           className="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:border-[#F57C00] focus:ring-2 focus:ring-[#F57C00]/20 transition-all"
-                          placeholder="Write your project details, report format, and survey timing."
+                          placeholder="Write your project details, report format, and survey timing (optional)."
                         />
                       </div>
                     </div>
@@ -628,7 +630,10 @@ export default function ContactPage() {
 
                     {/* File Upload */}
                     <div>
-                      <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">Upload Survey Files</label>
+                      <label className="block text-xs font-ui font-bold uppercase tracking-wider text-slate-500 mb-2">
+                        Upload Survey Files
+                        <span className="ml-2 text-[10px] font-sans normal-case tracking-normal text-slate-400">(optional)</span>
+                      </label>
                       <label className="flex flex-col items-center justify-center border-2 border-dashed border-slate-200 hover:border-[#F57C00]/40 rounded-xl p-8 cursor-pointer bg-white transition-colors group">
                         <UploadCloud className="w-10 h-10 text-slate-400 group-hover:text-[#F57C00] transition-colors mb-2" />
                         <span className="text-sm font-ui font-semibold text-[#0D2B6B] mb-1">Click to upload files</span>

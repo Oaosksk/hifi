@@ -108,8 +108,8 @@ const schema = z.object({
 
   requirement: z
     .string()
-    .min(10, "Please provide more detail about your requirement")
-    .max(3000, "Requirement text is too long"),
+    .max(3000, "Requirement text is too long")
+    .optional(),
 
   deliveryDate: z
     .string()
@@ -167,8 +167,9 @@ export async function POST(request: NextRequest) {
   };
 
   // 6. Ensure all required values are strings (not File objects / null)
+  const OPTIONAL_FIELDS = new Set(["services", "requirement"]);
   for (const [key, val] of Object.entries(raw)) {
-    if (key === "services") continue; // optional
+    if (OPTIONAL_FIELDS.has(key)) continue; // optional fields
     if (typeof val !== "string" || val.trim() === "") {
       return Response.json(
         { success: false, error: `Missing or invalid field: ${key}` },
@@ -186,7 +187,7 @@ export async function POST(request: NextRequest) {
     country:      sanitizeField(raw.country as string),
     services:     raw.services ? sanitizeField(raw.services as string) : undefined,
     location:     sanitizeField(raw.location as string),
-    requirement:  sanitizeMultiline(raw.requirement as string),
+    requirement:  raw.requirement ? sanitizeMultiline(raw.requirement as string) : undefined,
     deliveryDate: sanitizeField(raw.deliveryDate as string),
   };
 
